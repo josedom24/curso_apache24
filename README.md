@@ -16,47 +16,48 @@
 
 6. Introducción a Virtual hosting
 7. Configuración de Virtual Hosting
+8. Configuración de la ip y el puerto en virtual hosting
 
 ### Mapeo de URL
 
-8. Trabajo con alias
-9. Opciones de directorios y ficheros
-10. Negociación de contenidos
-11. Redirecciones
-12. Páginas de errores personalizados
+9. Trabajo con alias
+10. Opciones de directorios y ficheros
+11. Negociación de contenidos
+12. Redirecciones
+13. Páginas de errores personalizados
 
 ### Control de acceso, autentificación y autorización
 
-13. Control de acceso
-14. Autentificación básica
-15. Autentificación digest
-16. Autorización
+14. Control de acceso
+15. Autentificación básica
+16. Autentificación digest
+17. Autorización
 
 ### Ficheros .htaccess
 
-17. Configuración de Apache mediante archivo .htaccess
+18. Configuración de Apache mediante archivo .htaccess
 
 ### Módulos en Apache 2.4
 
-18. Uso de módulos en Apache 2.4
-19. Módulo public_html
-20. Creación de un servidor WebDAV
-21. Módulo rewrite
+19. Uso de módulos en Apache 2.4
+20. Módulo public_html
+21. Creación de un servidor WebDAV
+22. Módulo rewrite
 
 ### Gestión de peticiones
 
-22. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
-23. Ejecución de script PHP
-24. Ejecución de script python
+23. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
+24. Ejecución de script PHP
+25. Ejecución de script python
 
 ### Seguridad
 
-25. Congiguración de HTTPS en Apache 2.4
-26. Introducción al módulo mod_security2
-27. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
+26. Congiguración de HTTPS en Apache 2.4
+27. Introducción al módulo mod_security2
+28. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
 
 ### Otros temas
 
-28. Configuración de un proxy inverso en Apache 2.4
+29. Configuración de un proxy inverso en Apache 2.4
 
 
