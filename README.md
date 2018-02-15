@@ -8,7 +8,7 @@
 
 1. [Protocolo HTTP](curso/u1) 
 2. Introducción al servidor web Apache 2.4
-3. Instalación del servidor web Apache 2.4
+3. [Instalación del servidor web Apache 2.4](curso/u3)
 4. Estructura de los ficheros de configuración
 5. Empezamos estudiando algunas directivas
 
@@ -40,7 +40,7 @@
 ### Módulos en Apache 2.4
 
 19. Uso de módulos en Apache 2.4
-20. Módulo public_html
+20. Módulo user_dir
 21. Creación de un servidor WebDAV
 22. Módulo rewrite
 
