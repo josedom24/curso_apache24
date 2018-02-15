@@ -15,9 +15,9 @@
 
 ### Virtual Hosting en Apache 2.4
 
-7. [Introducción a Virtual hosting](curso/u7)
-8. Configuración de Virtual Hosting
-9. Configuración de la ip y el puerto en virtual hosting
+7. [Introducción a Virtual Hosting](curso/u7)
+8. [Configuración de Virtual Hosting](curso/u8)
+9. Configuración de acceso a los servidores virtuales
 
 ### Mapeo de URL
 

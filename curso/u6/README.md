@@ -4,25 +4,6 @@ El servidor web Apache 2.4 se instala por defecto con la configuración de un se
 
     /etc/apache2/sites-available/000-default.conf
 
-Cuyo contenido podemos ver:
-
-	<VirtualHost *:80>
-	        #ServerName www.example.com	
-	        ServerAdmin webmaster@localhost
-	        DocumentRoot /var/www/html	
-	        ErrorLog ${APACHE_LOG_DIR}/error.log
-	        CustomLog ${APACHE_LOG_DIR}/access.log combined	
-	</VirtualHost>
-
-Donde encontramos los siguientes parámetros:
-
-* [ServerName](https://httpd.apache.org/docs/2.4/mod/core.html#servername)
-* [ServerAdmin](https://httpd.apache.org/docs/2.4/mod/core.html#serveradmin)
-* [DocumentRoot](https://httpd.apache.org/docs/2.4/mod/core.html#documentroot)
-* [ErrorLog](https://httpd.apache.org/docs/2.4/mod/core.html#errorlog)
-* [CustomLog](http://httpd.apache.org/docs/current/mod/mod_log_config.html#customlog)
-
-
 Y por defecto este sitio virtual está habilitado, por lo que podemos comprobar que existe un enlace simbólico a este fichero en el directorio ``/etc/apache2/sites-enables``:
 
     lrwxrwxrwx 1 root root   35 Oct  3 15:24 000-default.conf -> ../sites-available/000-default.conf
