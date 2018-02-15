@@ -8,56 +8,57 @@
 
 1. [Protocolo HTTP](curso/u1) 
 2. Introducción al servidor web Apache 2.4
-3. [Instalación del servidor web Apache 2.4	](curso/u3)
+3. [Instalación del servidor web Apache 2.4](curso/u3)
 4. [Estructura de los ficheros de configuración](curso/u4)
 5. Empezamos estudiando algunas directivas
+6. Servidor virtual por defecto
 
 ### Virtual Hosting en Apache 2.4
 
-6. Introducción a Virtual hosting
-7. Configuración de Virtual Hosting
-8. Configuración de la ip y el puerto en virtual hosting
+7. Introducción a Virtual hosting
+8. Configuración de Virtual Hosting
+9. Configuración de la ip y el puerto en virtual hosting
 
 ### Mapeo de URL
 
-9. Trabajo con alias
-10. Opciones de directorios y ficheros
-11. Negociación de contenidos
-12. Redirecciones
-13. Páginas de errores personalizados
+10. Trabajo con alias
+11. Opciones de directorios y ficheros
+12. Negociación de contenidos
+13. Redirecciones
+14. Páginas de errores personalizados
 
 ### Control de acceso, autentificación y autorización
 
-14. Control de acceso
-15. Autentificación básica
-16. Autentificación digest
-17. Autorización
+15. Control de acceso
+16. Autentificación básica
+17. Autentificación digest
+18. Autorización
 
 ### Ficheros .htaccess
 
-18. Configuración de Apache mediante archivo .htaccess
+19. Configuración de Apache mediante archivo .htaccess
 
 ### Módulos en Apache 2.4
 
-19. Uso de módulos en Apache 2.4
-20. Módulo user_dir
-21. Creación de un servidor WebDAV
-22. Módulo rewrite
+20. Uso de módulos en Apache 2.4
+21. Módulo user_dir
+22. Creación de un servidor WebDAV
+23. Módulo rewrite
 
 ### Gestión de peticiones
 
-23. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
-24. Ejecución de script PHP
-25. Ejecución de script python
+24. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
+25. Ejecución de script PHP
+26. Ejecución de script python
 
 ### Seguridad
 
-26. Congiguración de HTTPS en Apache 2.4
-27. Introducción al módulo mod_security2
-28. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
+27. Congiguración de HTTPS en Apache 2.4
+28. Introducción al módulo mod_security2
+29. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
 
 ### Otros temas
 
-29. Configuración de un proxy inverso en Apache 2.4
+30. Configuración de un proxy inverso en Apache 2.4
 
 
