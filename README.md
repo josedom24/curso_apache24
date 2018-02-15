@@ -11,7 +11,7 @@
 3. [Instalación del servidor web Apache 2.4](curso/u3)
 4. [Estructura de los ficheros de configuración](curso/u4)
 5. [Empezamos estudiando algunas directivas](curso/u5)
-6. Probando nuestro servidor web
+6. [Probando nuestro servidor web](curso/u6)
 
 ### Virtual Hosting en Apache 2.4
 
@@ -40,7 +40,7 @@
 
 ### Módulos en Apache 2.4
 
-20. Uso de módulos en Apache 2.4
+20. Uso de módulos en Apache 2.4 (módulos ctivos por defecto: dir)
 21. Módulo user_dir
 22. Creación de un servidor WebDAV
 23. Módulo rewrite
