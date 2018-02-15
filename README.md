@@ -15,7 +15,7 @@
 
 ### Virtual Hosting en Apache 2.4
 
-7. Introducción a Virtual hosting
+7. [Introducción a Virtual hosting](curso/u7)
 8. Configuración de Virtual Hosting
 9. Configuración de la ip y el puerto en virtual hosting
 
@@ -40,7 +40,7 @@
 
 ### Módulos en Apache 2.4
 
-20. Uso de módulos en Apache 2.4 (módulos ctivos por defecto: dir)
+20. Uso de módulos en Apache 2.4 (módulos activos por defecto: dir)
 21. Módulo user_dir
 22. Creación de un servidor WebDAV
 23. Módulo rewrite
