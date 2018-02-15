@@ -21,6 +21,7 @@ Evidentemente el servidor está gestionado por el Systemd, por lo tanto para ges
 En sistemas GNU/Linux CentOS/Red Hat tendráimos que ejecutar como administrador:
 
 	yum install httpd
+	systemctl start httpd
 
 Para gestionar el servicio:
 

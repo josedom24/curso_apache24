@@ -10,8 +10,8 @@
 2. Introducción al servidor web Apache 2.4
 3. [Instalación del servidor web Apache 2.4](curso/u3)
 4. [Estructura de los ficheros de configuración](curso/u4)
-5. Empezamos estudiando algunas directivas
-6. Servidor virtual por defecto
+5. [Empezamos estudiando algunas directivas](curso/u5)
+6. Probando nuestro servidor web
 
 ### Virtual Hosting en Apache 2.4
 
