@@ -21,44 +21,43 @@
 
 ### Mapeo de URL
 
-10. Trabajo con alias
-11. Opciones de directorios y ficheros
+10. Opciones de directorios y ficheros
+11. Trabajo con alias
 12. Negociación de contenidos
 13. Redirecciones
 14. Páginas de errores personalizados
 
 ### Control de acceso, autentificación y autorización
 
-15. Control de acceso
+15. Control de acceso. Autorización.
 16. Autentificación básica
 17. Autentificación digest
-18. Autorización
 
 ### Ficheros .htaccess
 
-19. Configuración de Apache mediante archivo .htaccess
+18. Configuración de Apache mediante archivo .htaccess
 
 ### Módulos en Apache 2.4
 
-20. Uso de módulos en Apache 2.4 (módulos activos por defecto: dir)
-21. Módulo user_dir
-22. Creación de un servidor WebDAV
-23. Módulo rewrite
+19. Uso de módulos en Apache 2.4 (módulos activos por defecto: dir)
+20. Módulo user_dir
+21. Creación de un servidor WebDAV
+22. Módulo rewrite
 
 ### Gestión de peticiones
 
-24. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
-25. Ejecución de script PHP
-26. Ejecución de script python
+23. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
+24. Ejecución de script PHP
+25. Ejecución de script python
 
 ### Seguridad
 
-27. Congiguración de HTTPS en Apache 2.4
-28. Introducción al módulo mod_security2
-29. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
+26. Congiguración de HTTPS en Apache 2.4
+27. Introducción al módulo mod_security2
+28. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
 
 ### Otros temas
 
-30. Configuración de un proxy inverso en Apache 2.4
+29. Configuración de un proxy inverso en Apache 2.4
 
 
