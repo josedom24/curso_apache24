@@ -15,7 +15,7 @@ El método de autentificación básica se indica en la directiva [AuthType](http
 * En `Directory` escribimos el directorio a proteger, que puede ser el raíz de nuestro Virtual Host o un subdirectorio.
 * En [`AuthUserFile`](http://httpd.apache.org/docs/2.4/es/mod/mod_authn_file.html#authuserfile) ponemos el fichero que guardará la información de usuarios y contraseñas que debería de estar, como en este ejemplo, en un directorio que no sea visitable desde nuestro Apache. Ahora comentaremos la forma de generarlo. 
 * Por último, en [`AuthName`](http://httpd.apache.org/docs/2.4/es/mod/core.html#authname) personalizamos el mensaje que aparecerá en la ventana del navegador que nos pedirá la contraseña.
-* Para controlar el control de acceso, es decir, que usuarios tienen permiso para obtener el recurso utilizamos las siguientes directivas: [`AuthGroupFile`](http://httpd.apache.org/docs/2.4/es/mod/mod_authz_groupfile.html#authgroupfile), [Require user](http://httpd.apache.org/docs/2.4/es/mod/core.html#require), [Require group](http://httpd.apache.org/docs/2.4/es/mod/core.html#require).
+* Para controlar el control de acceso, es decir, que usuarios tienen permiso para obtener el recurso utilizamos las siguientes directivas: [`AuthGroupFile`](http://httpd.apache.org/docs/2.4/es/mod/mod_authz_groupfile.html#authgroupfile), [`Require user`](http://httpd.apache.org/docs/2.4/es/mod/mod_authz_core.html#require), [`Require group`](http://httpd.apache.org/docs/2.4/es/mod/mod_authz_core.html#require).
 
 El fichero de contraseñas se genera mediante la utilidad `htpasswd`. Su sintaxis es bien sencilla. Para añadir un nuevo usuario al fichero operamos así:
 
@@ -33,3 +33,7 @@ Para crear el fichero de contraseñas con la introducción del primer usuario te
 Para denegar el acceso a algún usuario basta con que borremos la línea correspondiente al mismo. No es necesario que le pidamos a Apache que vuelva a leer su configuración cada vez que hagamos algún cambio en este fichero de contraseñas.
 
 La principal ventaja de este método es su sencillez. Sus inconvenientes: lo incómodo de delegar la generación de nuevos usuarios en alguien que no sea un administrador de sistemas o de hacer un front-end para que sea el propio usuario quien cambie su contraseña. Y, por supuesto, que dichas contraseñas viajan en claro a través de la red. Si queremos evitar esto último podemos configurtar Apache2 con SSL.
+
+## Ejercicio
+
+Realiza la auntenfificación básica de un directorio de un  virtual host que tengas en tu servidor. Crea varios usuarios que puedan acceder. A continuación crea un grupo de usuarios, y dale permiso de acceso a ese grupo (usando la directivas `AuthGroupFile` y `Require group`).
