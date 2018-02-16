@@ -30,7 +30,7 @@
 ### Control de acceso, autentificación y autorización
 
 15. Control de acceso. Autorización.
-16. Autentificación básica
+16. [Autentificación básica](curso/u16)
 17. Autentificación digest
 
 ### Ficheros .htaccess
