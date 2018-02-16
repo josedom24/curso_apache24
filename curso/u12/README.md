@@ -15,7 +15,7 @@ Lo primero que tenemos es crear varios ficheros `index.html` con los distintos i
 	# ls /var/www/html/internacional
 	index.html.en  index.html.es
 
-Hemos creado dos ficheros: [`index.html.en`]() para el idioma inglés y [`index.html.es`]() para el español.
+Hemos creado dos ficheros: [`index.html.en`](https://raw.githubusercontent.com/josedom24/curso_apache24/master/curso/u12/fich/index.html.en) para el idioma inglés y [`index.html.es`](https://raw.githubusercontent.com/josedom24/curso_apache24/master/curso/u12/fich/index.html.es) para el español.
 
 A continuación debemos activar la opción `Multiviwes` para el directorio con el que estamos trabajando, por lo tanto en el fichero de configuración del virtual host `/wtc/apache2/sites-availables/paginaq.conf` creamos una sección `Directory`:
 
