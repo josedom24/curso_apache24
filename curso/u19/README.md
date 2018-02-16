@@ -27,9 +27,9 @@ directorio `/usr/lib/apache2/modules/`:
 
 	# ls /usr/lib/apache2/modules/
 
-	httpd.exp				mod_dav.so			    mod_proxy_fcgi.so
-	mod_access_compat.so	mod_dbd.so			    mod_proxy_fdpass.so
-	mod_actions.so			mod_deflate.so		    mod_proxy_ftp.so
+	httpd.exp		mod_dav.so		    mod_proxy_fcgi.so
+	mod_access_compat.so	mod_dbd.so		    mod_proxy_fdpass.so
+	mod_actions.so		mod_deflate.so	    mod_proxy_ftp.so
 	...
 
 Pueden parecer muchos, pero son sólo los módulos de la instalación estándar y se incluyen dentro del paquete `apache2-data`. Hay otros muchos módulos que se distribuyen en paquetes separados, que en debian reciben el nombre `libapache2-mod-*`:
