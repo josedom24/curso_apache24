@@ -28,7 +28,7 @@ Para conseguir estos dos sitios virtuales debes seguir los siguientes pasos:
 
 	La creación de los enlaces simbólicos se puede hacer con la instrucción `a2ensite nombre_fichero_configuracion`, para deshabilitar el sitio tenemos que borrar el enlace simbólico o usar la instrucción `a2dissite nombre_fichero_configuracion`.
 
-4. Crea los directorios y los ficheros index.html necesarios en `/var/www` y reiniciamos el servicio.
+4. Crea los directorios y los ficheros index.html necesarios en `/var/www` y reiniciamos el servicio. Recureda que los ficheros servidos deben ser propiedad del usuario y grupo que usa Apache, es decir usuario `www-data` y grupo `www-data`.
 
 5. Para terminar lo único que tendremos que hacer es cambiar el fichero hosts en los clientes y poner dos nuevas líneas donde se haga la conversión entre los dos nombre de dominio y la dirección IP del servidor.
 
