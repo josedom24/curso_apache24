@@ -13,7 +13,7 @@ La primera forma que veremos es la más simple. Usamos para ello el módulo de a
 El método de autentificación básica se indica en la directiva [AuthType](http://httpd.apache.org/docs/2.4/es/mod/core.html#authtype).  
 
 * En `Directory` escribimos el directorio a proteger, que puede ser el raíz de nuestro Virtual Host o un subdirectorio.
-* En `[AuthUserFile](http://httpd.apache.org/docs/2.4/es/mod/mod_authn_file.html#authuserfile)` ponemos el fichero que guardará la información de usuarios y contraseñas que debería de estar, como en este ejemplo, en un directorio que no sea visitable desde nuestro Apache. Ahora comentaremos la forma de generarlo. 
+* En [`AuthUserFile`](http://httpd.apache.org/docs/2.4/es/mod/mod_authn_file.html#authuserfile) ponemos el fichero que guardará la información de usuarios y contraseñas que debería de estar, como en este ejemplo, en un directorio que no sea visitable desde nuestro Apache. Ahora comentaremos la forma de generarlo. 
 * Por último, en [AuthName](http://httpd.apache.org/docs/2.4/es/mod/core.html#authname) personalizamos el mensaje que aparecerá en la ventana del navegador que nos pedirá la contraseña.
 * Para controlar el control de acceso, es decir, que usuarios tienen permiso para obtener el recurso utilizamos las siguientes directivas: [AuthGroupFile](http://httpd.apache.org/docs/2.4/es/mod/mod_authz_groupfile.html#authgroupfile), [Require user](http://httpd.apache.org/docs/2.4/es/mod/core.html#require), [Require group](http://httpd.apache.org/docs/2.4/es/mod/core.html#require).
 
