@@ -22,4 +22,4 @@ Por lo tanto podemos acceder desde un navegador a la ip de nuestro servidor (tam
 
 	/var/www/html/index.html
 
-	
+Por defecto los errores de nuestro sitio virtual se guardan en `/var/log/apache2/error.log` y los accesos a nuestro servidor se guardan en `/var/log/apache2/access.log`.
