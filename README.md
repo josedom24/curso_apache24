@@ -35,7 +35,7 @@
 
 ### Ficheros .htaccess
 
-18. Configuración de Apache mediante archivo .htaccess
+18. [Configuración de Apache mediante archivo .htaccess](curso/u18)
 
 ### Módulos en Apache 2.4
 
