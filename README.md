@@ -52,7 +52,7 @@
 
 ### Seguridad
 
-26. Congiguración de HTTPS en Apache 2.4
+26. Configuración de HTTPS en Apache 2.4
 27. Introducción al módulo mod_security2
 28. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
 
