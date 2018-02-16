@@ -47,8 +47,8 @@
 ### Gestión de peticiones
 
 23. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
-24. Ejecución de script PHP
-25. Ejecución de script python
+24. [Ejecución de script PHP](curso/u24)
+25. [Ejecución de script python](curso/u25)
 
 ### Seguridad
 
