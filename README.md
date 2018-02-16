@@ -39,7 +39,7 @@
 
 ### Módulos en Apache 2.4
 
-19. Uso de módulos en Apache 2.4 (módulos activos por defecto: dir)
+19. [Uso de módulos en Apache 2.4](curso/u19)
 20. Módulo user_dir
 21. Creación de un servidor WebDAV
 22. Módulo rewrite
