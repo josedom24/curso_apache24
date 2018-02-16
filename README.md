@@ -21,7 +21,7 @@
 
 ### Mapeo de URL
 
-10. Opciones de directorios y ficheros
+10. [Opciones de directorios y ficheros](curso/u10)
 11. Trabajo con alias
 12. Negociación de contenidos
 13. Redirecciones
