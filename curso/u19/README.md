@@ -27,8 +27,8 @@ directorio `/usr/lib/apache2/modules/`:
 
 	# ls /usr/lib/apache2/modules/
 
-	httpd.exp		mod_dav.so		    mod_proxy_fcgi.so
-	mod_access_compat.so	mod_dbd.so		    mod_proxy_fdpass.so
+	httpd.exp		mod_dav.so	    mod_proxy_fcgi.so
+	mod_access_compat.so	mod_dbd.so	    mod_proxy_fdpass.so
 	mod_actions.so		mod_deflate.so	    mod_proxy_ftp.so
 	...
 
