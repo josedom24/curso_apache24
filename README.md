@@ -1,6 +1,6 @@
 # Curso: servidor web Apache 2.4
 
-Cosas no vistas: Files, a2enconf a2disconf, envvar, ...
+Cosas no vistas: Files, a2enconf a2disconf, envvar, option IncludesNoExec ...
 
 ## Unidades
 
@@ -43,7 +43,7 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, ...
 ### Módulos en Apache 2.4
 
 20. [Uso de módulos en Apache 2.4](curso/u20)
-21. Módulo user_dir
+21. [Módulo userdir](curso/u21)
 22. [Creación de un servidor WebDAV](curso/u22)
 23. [Módulo rewrite](curso/u23)
 
