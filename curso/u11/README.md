@@ -15,7 +15,7 @@ No basta con poner la directiva `Alias`, además es necesario dar permiso de acc
     	Require all granted
 	</Directory>
 
-Podemos usar la directiva [`AliasMAtch`](https://httpd.apache.org/docs/2.4/mod/mod_alias.html#aliasmatch) de forma similar a `Alias` pero usando expresiones regulares para determinar la URL a la que se accede. Por ejemplo:
+Podemos usar la directiva [`AliasMatch`](https://httpd.apache.org/docs/2.4/mod/mod_alias.html#aliasmatch) de forma similar a `Alias` pero usando expresiones regulares para determinar la URL a la que se accede. Por ejemplo:
 
 	AliasMatch "^/image/(.*)$" "/ftp/pub/image/$1"
 
