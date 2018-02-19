@@ -25,7 +25,7 @@
 11. [Trabajando con alias](curso/u11)
 12. [Negociación de contenidos](curso/u12)
 13. [Redirecciones](curso/u13)
-14. Páginas de errores personalizados
+14. [Páginas de errores personalizadas](curso/u14)
 
 ### Control de acceso, autentificación y autorización
 
