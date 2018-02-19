@@ -1,6 +1,6 @@
 # Configuración de Virtual Hosting
 
-Vamos a realizar un ejercicio para mostrar como podemos configurar distintos sitios virtuales en Apache 2.4. El objetivo es la puesta en marcha de dos sitios web utilizando el mismo servidor web apache. Hay que tener en cuenta lo siguiente:
+Vamos a realizar un ejercicio para mostrar como podemos configurar distintos sitios virtuales en Apache 2.4 (basados en nombre). El objetivo es la puesta en marcha de dos sitios web utilizando el mismo servidor web apache. Hay que tener en cuenta lo siguiente:
 
 * Cada sitio web tendrá nombres distintos.
 * Cada sitio web compartirán la misma dirección IP y el mismo puerto (80).
