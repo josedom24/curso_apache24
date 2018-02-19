@@ -38,20 +38,20 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, ...
 
 ### Ficheros .htaccess
 
-19. [Configuración de Apache mediante archivo .htaccess](curso/u18)
+19. [Configuración de Apache mediante archivo .htaccess](curso/u19)
 
 ### Módulos en Apache 2.4
 
-20. [Uso de módulos en Apache 2.4](curso/u19)
+20. [Uso de módulos en Apache 2.4](curso/u20)
 21. Módulo user_dir
-22. [Creación de un servidor WebDAV](curso/u21)
-23. [Módulo rewrite](curso/u22)
+22. [Creación de un servidor WebDAV](curso/u22)
+23. [Módulo rewrite](curso/u23)
 
 ### Gestión de peticiones
 
 24. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
-25. [Ejecución de script PHP](curso/u24)
-26. [Ejecución de script python](curso/u25)
+25. [Ejecución de script PHP](curso/u25)
+26. [Ejecución de script python](curso/u26)
 
 ### Seguridad
 
