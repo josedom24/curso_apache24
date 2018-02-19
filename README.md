@@ -1,6 +1,6 @@
 # Curso: servidor web Apache 2.4
 
-Cosas no vista: Files, a2enconf a2disconf, ...
+Cosas no vistas: Files, a2enconf a2disconf, envvar, ...
 
 ## Unidades
 
