@@ -17,7 +17,7 @@
 
 7. [Introducción a Virtual Hosting](curso/u7)
 8. [Configuración de Virtual Hosting](curso/u8)
-9. Configuración de acceso a los servidores virtuales
+9. [Configuración de acceso a los servidores virtuales](curso/u9)
 
 ### Mapeo de URL
 
