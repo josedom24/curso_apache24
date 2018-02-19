@@ -1,78 +1,28 @@
-# Módulo rewrite
+# Creación de un servidor WebDAV
 
-El módulo [`rewrite`](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) nos va a permitir acceder a una URL e internamente estar accediendo a otra. Ayudado por los ficheros `.htaccess`, el módulo `rewrite` nos va a ayudar a formar URL amigables que son más consideradas por los motores de búsquedas y mejor recordadas por los humanos. Por ejemplo estas URL:
+**WebDAV** ("*Edición y versionado distribuidos sobre la web*") es un protocolo para hacer que la www sea un medio legible y editable. Este protocolo proporciona funcionalidades para crear, cambiar y mover documentos en un servidor remoto (típicamente un servidor web). Esto se utiliza sobre todo para permitir la edición de los documentos que sirve un servidor web, pero puede también aplicarse a sistemas de almacenamiento generales basados en web, que pueden ser accedidos desde cualquier lugar. La mayoría de los sistemas operativos modernos proporcionan soporte para WebDAV, haciendo que los ficheros de un servidor WebDAV aparezcan como almacenados en un directorio local.
 
-    www.dominio.com/articulos/muestra.php?id=23
-    www.dominio.com/pueblos/pueblo.php?nombre=torrelodones
+## Configuración de un servidor WebDAV
 
-Es mucho mejor escribirlas como:
+Para crear un directorio en nuestro servidor Web que pueda ser accesible por medio de un cliente WebDAV debemos activar los módulos `dav` y `dav_fs`.
 
-    www.dominio.com/articulos/23.php
-    www.dominio.com/pueblos/torrelodones.php
+Lo primero es indicar el nombre de la base de datos de lock que se utilizará, mediante la directiva `DAVLockDB`. Es importante tener especial cuidado con esta directiva, ya que es frecuente fuente de errores.
 
-## Ejemplo 1: Cambiar la extensión de los ficheros
+    DavLockDB /tmp/DAVLockDB
 
-Si queremos usar la extensión `do` en vez de `html` podríamos usar este `.htaccess`:
+Lo que indica la directiva no es ni el nombre de un archivo ni el de una carpeta, si no la parte inicial del nombre de un archivo. El módulo creará un archivo de nombre `DAVLockDB.orig` y otro de nombre `DAVLockDB.xxxxx` dentro de la carpeta indicada, para lo cual es necesario que el usuario *"Apache"* tenga permisos de escritura en ella.
 
-        Options FollowSymLinks
-        RewriteEngine On
-        RewriteRule ^(.+).do$ $1.html [nc]
+A continuación creamos una sección directory para el directorio que queremos acceder por WebDav y activar el modo WebDav con la directiva `dav on`. Además por seguridad se debe autentificar el acceso, por lo que quedaría parecido a esto:
 
-Esto puede ser penalizado por los motores de búsqueda ya que podemos acceder a la misma página con dos URL distintas, para solucionar esto podemos hacer una redirección:
+        DavLockDB /tmp/DavLock
+        <Directory /var/www/webdav>
+                dav on
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                AuthType digest
+                AuthUserFile "/etc/apache2/digest.txt"
+                AuthName "Dominio"
+                Require valid-user
+        </Directory>
 
-        RewriteRule ^(.+).do$ $1.html [r,nc]
-
-## Ejemplo 2: Crear URL amigables
-
-Si tenemos el siguiente fichero php [operacion.php](https://raw.githubusercontent.com/josedom24/curso_apache24/master/curso/u22/fich/operacion.php), podríamos usarlo de la siguiente manera:
-
-        http://www.pagina1.org/operacion.php?op=suma&op1=6&op2=8
-
-Y si queremos reescribir la URL y que usemos en vez de php html, de esta forma:
-
-        http://www.pagina1.org/operacion.html?op=suma&op1=6&op2=8
-
-Para ello activamos el `mod_rewite`, y escribimos un `.htaccess` de la siguiente manera:
-
-        Options FollowSymLinks
-        RewriteEngine On
-        RewriteBase /
-        RewriteRule ^([a-z]+)/([0-9]+)/([0-9]+)$ operacion.php?op=$1&op1=$2&op2=$3
-
-## Ejemplo 3: Uso del RewriteCond
-
-La directiva `RewriteCond` nos permite especificar una condición que si se cumple se ejecuta la directiva `RewriteRule` posterior. Se pueden poner varias condiciones con `RewriteCond`, en este caso cuando se cumplen todas se ejecuta la directiva `RewriteRule` posterior.
-
-Como vemos en la documentación podemos preguntar por varios parámetros, entre los que destacamos los siguientes:
-
-* `%{HTTP_USER_AGENT}`: Información del cliente que accede.
-    Por ejemplo, podemos mostrar una página distinta para cada navegador:
-
-        RewriteCond %{HTTP_USER_AGENT} ^Mozilla
-        RewriteRule ^/$ /index.max.html [L]
-
-        RewriteCond %{HTTP_USER_AGENT} ^Lynx
-        RewriteRule ^/$ /index.min.html [L]
-
-        RewriteRule ^/$ /index.html [L]
-
-* `%{QUERY_STRING}`: Guarda la cadena de parámetros de una URL dinámica.Por ejemplo:
-
-    Teníamos un fichero index.php que recibía un parámetro lang, para traducir el mensaje de bienvenida.
-
-        http://www.pagina1.org/index.php?lang=es
-
-    Actualmente hemos cambiado la forma de traducir, y se han creado distintos directorios para cada idioma y dentro un index.php con el mensaje traducido.
-
-        http://www.pagina1.org/es/index.php
-
-    Sin embargo se quiere seguir utilizando la misma forma de traducir.
-
-        RewriteCond %{QUERY_STRING} lang=(.*)
-        RewriteRule ^index.php$ /%1/$1
-
-* `%{REMOTE_ADDR}`: Dirección de destino. Por ejemplo puedo denegar el acceso a una dirección:
-
-        RewriteCond %{REMOTE_ADDR} 145.164.1.8
-        RewriteRule ^(.*)$ / [R,NC,L]
-   
+Por último ppodemos comprobar el acceso al servidor WebDAV con un cliente.

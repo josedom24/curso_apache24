@@ -1,74 +1,126 @@
-# Ejecución de script python
+# Ejecución de script PHP
 
-## Apache2 y módulo wsgi
+## Apache2 y módulo PHP
 
-Instalamos el módulo de apache2 que nos permite ejecutar código python: `libapache2-mod-wsgi`.
+Instalamos apache2 y el módulo que permite que los procesos de apache2 sean capaz de ejecutar el código PHP:
 
-Veamos un ejemplo de configuración para una aplicación django. Suponemos que el fichero wsgi se encuentra en el directorio: ``/var/www/html/mysite/mysite/wsgi.py`` y configuramos apache2 de la siguiente manera::
+	apt install apache2 php7.0 libapache2-mod-php7.0
 
-    <VirtualHost *>
-        ServerName www.example.com
-        DocumentRoot /var/www/html/mysite
-        WSGIDaemonProcess mysite user=www-data group=www-data processes=1 threads=5 python-path=/var/www/html/mysite
-        WSGIScriptAlias / /var/www/html/mysite/mysite/wsgi.py
+Cuando hacemos la instalación se desactiva el MPM `event` y se activa el `prefork`:
 
-        <Directory /var/www/html/mysite>
-                WSGIProcessGroup mysite
-                WSGIApplicationGroup %{GLOBAL}
-                Require all granted
-        </Directory>
-    </VirtualHost>
+	...
+	Module mpm_event disabled.
+	Enabling module mpm_prefork.
+	apache2_switch_mpm Switch to prefork
+	...
 
-Si hemos usado un entorno virtual ecreado en el directorio ``/home/debian/python``, la siguiente línea de configuración quedaría de la siguiente manera:
+Si queremos desactivar el módulo PHP de apache2:
 
-    ...
-    WSGIDaemonProcess mysite user=www-data group=www-data processes=1 threads=5 python-path=/var/www/html/mysite:/home/debian/python/lib/python2.7/site-packages
-    ...
+	apt remove libapache2-mod-php7.0
 
-## Usando servidores wsgi
+Y activamos el módulo `event`:
 
-Otra forma de ejecutar código python es usar servidores de aplicación wsgi. Tenemos a nuestra disposición varios servidores: [A Comparison of Web Servers for Python Based Web Applications](https://www.digitalocean.com/community/tutorials/a-comparison-of-web-servers-for-python-based-web-applications). Realmente usamos apache2 como proxy inverso que envía la petición python al servidor WSGI que estemos utilizando.
+	a2dismod mpm_prefork
+	a2enmod mpm_event
 
-### uwsgi
+La configuración de php está dividida según desde se use:
 
-Para instalarlo en Debian 9 Stretch:
+* `/etc/php/7.0/cli`: Configuración de php para `php7.0-cli`, cuando se utiliza php desde la línea de comandos.
+* `/etc/php/7.0/apache2`: Configuración de php para apache2 cuando utiliza el módulo.
+* `/etc/php/7.0/fpm`: Configuración de php para php-fpm
+* `/etc/php/7.0/mods-available`: Módulos disponibles de php que puedes estar configurados en cualquiera de los escenarios anteriores.
 
-    apt install uwsgi
-    apt install uwsgi-plugin-python
+Si nos fijamos en la configuración de php para apache2:
 
-También lo podemos instalar con `pip` en un entorno virtual.  
+* `/etc/php/7.0/apache2/conf.d`: Módulos instalados en esta configuración de php (enlaces simbólicos a `/etc/php/7.0/mods-available`).
+* `/etc/php/7.0/apache2/php.ini`: Configuración de php para este escenario.
 
-**Despliegue de una aplicación django con uwsgi**
+## PHP-FPM
 
-Hemos creado una aplicación django en el directorio: `/home/debian/myapp` para desplegarla con uwsgi ejecutamos:
+FPM (FastCGI Process Manager) es una implementación alternativa al PHP FastCGI. FPM se encarga de interpretar código PHP. Aunque normalmente se utiliza junto a un servidor web (Apache2 o ngnix) vamos a hacer en primer lugar una instalación del proceso y vamos a estudiar algunos parámetros de configuración y estudiar su funcionamiento.
 
-    uwsgi --http :8080 --plugin python --chdir /home/debian/myapp --wsgi-file myapp/wsgi.py --process 4 --threads 2 --master 
+Para instalarlo en Debian 9:
 
-Otra alternativa es crear un fichero `.ini` de configuración, `ejemplo.ini` de la siguiente manera:
+	apt install php7.0-fpm php7.0
 
-    [uwsgi]
-    http = :8080
-    chdir = /home/debian/myapp 
-    wsgi-file = myapp/wsgi.py
-    processes = 4
-    threads = 2
+### Configuración
 
-Y para ejecutar el servidor, simplemente:
+Con esto hemos instalado php 7.0 y php-fpm. Veamos primeros algunos ficheros de configuración de php:
 
-    uwsgi ejemplo.ini
+Si nos fijamos en la configuración de php para php-fpm:
 
-De esta forma puedo tener varios ficheros de configuración del servidor uwsgi para las distintas aplicaciones python que sirva el servidor.
+* `/etc/php/7.0/fpm/conf.d`: Módulos instalados en esta configuración de php (enlaces simbólicos a `/etc/php/7.0/mods-available`).
+* `/etc/php/7.0/fpm/php-fpm.conf`: Configuración general de php-fpm.
+* `/etc/php/7.0/fpm/php.ini`: Configuración de php para este escenario.
+* `/etc/php/7.0/fpm/pool.d`: Directorio con distintos pool de configuración. Cada aplicación puede tener una configuración distinta (procesos distintos) de php-fpm.
 
-Podemos tener los ficheros de configuración en `/etc/uwsgi/apps-available` y para habiliatar podemos crear un enlace simbólico a estos ficheros en `/etc/uwsgi/apps-enabled`.
+Por defecto tenemos un pool cuya configuración la encontramos en `/etc/php/7.0/fpm/pool.d/www.conf`, en este fichero podemos configurar muchos parámetros, los más importantes son:
 
-En el ejemplo anterior hemos usado la opción `http` para indicar que se va a devolver una respuesta HTTP, podemos usar varias opciones:
+* `[www]`: Es el nombre del pool, si tenemos varios, cada uno tiene que tener un nombre.
+* `user` y `grorup`: Usuario y grupo con el que se va ejecutar los procesos.
+* `listen`: Se indica el socket unix o el socket TCP donde van a escuchar los procesos:
+	* Por defecto, escucha por un socket unix:
+		`listen = /run/php/php7.0-fpm.sock`
+	* Si queremos que escuche por un socket TCP:
+		`listen = 127.0.0.1:9000`
+	* En el caso en que queramos que escuche en cualquier dirección:
+		`listen = 9000`
 
-* `http`: Se comporta como un servidor http.
-* `http-socket`: Si vamos a utilizar un proxy inverso usando el servidor uwsgi.
-* `socket`: La respuesta ofrecida por el servidor no es HTTP, es usando el protocolo uwsgi.
+* Directivas de procesamiento, gestión de procesos: 
+	* `pm`: Por defecto igual a `dynamic` (el número de procesos se crean y destruyen de forma dinámica). Otros valores: `static` o `ondemand`.
+	* Otras directivas: `pm.max_children`, `pm.start_servers`, `pm.min_spare_servers`,...
 
-Existen muchas más opciones que puedes usar: [http://uwsgi-docs.readthedocs.io/en/latest/Options.html](http://uwsgi-docs.readthedocs.io/en/latest/Options.html).
+* `pm.status_path = /status`: No es necesaria, pero vamos a activar la URL de `status` para comprobar el estado del proceso.
 
-## Apache con uwsgi
+Por último reiniciamos el servicio:
 
-FALTA!!!!!!!!!!!!!!!!!!!!!!!
+	systemctl restart php7.0-fpm
+
+
+### Configuración de Apache2 con php-fpm
+
+Necesito activar los siguientes módulos_
+
+	a2enmod proxy proxy_fcgi
+
+
+#### Activarlo para cada virtualhost
+
+Podemos hacerlo de dos maneras:
+
+* Si php-fpm está escuchando en un socket TCP:
+
+		ProxyPassMatch ^/(.*\.php)$ fcgi://127.0.0.1:9000/var/www/html/$1
+
+* Si php-fpm está escuchando en un socket UNIX:
+
+		ProxyPassMatch ^/(.*\.php)$ unix:/run/php/php7.0-fpm.sock|fcgi://127.0.0.1/var/www/html
+
+Otra forma de hacerlo es la siguiente:
+
+* Si php-fpm está escuchando en un socket TCP:
+
+		<FilesMatch "\.php$">
+	    	SetHandler "proxy:fcgi://127.0.0.1:9000"
+		</FilesMatch>
+
+* Si php-fpm está escuchando en un socket UNIX:
+
+		<FilesMatch "\.php$">
+   	    	SetHandler "proxy:unix:/run/php/php7.0-fpm.sock|fcgi://127.0.0.1/"
+		</FilesMatch>
+
+#### Activarlo para todos los virtualhost
+
+Tenemos a nuestra disposición un fichero de configuración `php7.0-fpm` en el directorio `/etc/apache2/conf-available`. Por defecto funciona cuando php-fpm está escuchando en un socket UNIX, si escucha por un socket TCP, hay que cambiar la línea:
+
+	SetHandler "proxy:unix:/run/php/php7.0-fpm.sock|fcgi://localhost"
+
+por esta:
+
+	SetHandler "proxy:fcgi://127.0.0.1:9000"
+
+Por último activamos la configuración:
+
+	a2enconf php7.0-fpm
+

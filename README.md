@@ -34,33 +34,34 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, ...
 15. [Control de acceso. Autorización](curso/u15)
 16. [Autentificación básica](curso/u16)
 17. [Autentificación digest](curso/u17)
+18. Implementando políticas de autentificación y acceso
 
 ### Ficheros .htaccess
 
-18. [Configuración de Apache mediante archivo .htaccess](curso/u18)
+19. [Configuración de Apache mediante archivo .htaccess](curso/u18)
 
 ### Módulos en Apache 2.4
 
-19. [Uso de módulos en Apache 2.4](curso/u19)
-20. Módulo user_dir
-21. [Creación de un servidor WebDAV](curso/u21)
-22. [Módulo rewrite](curso/u22)
+20. [Uso de módulos en Apache 2.4](curso/u19)
+21. Módulo user_dir
+22. [Creación de un servidor WebDAV](curso/u21)
+23. [Módulo rewrite](curso/u22)
 
 ### Gestión de peticiones
 
-23. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
-24. [Ejecución de script PHP](curso/u24)
-25. [Ejecución de script python](curso/u25)
+24. Módulos de Multiprocesamiento (MPMs) en Apache 2.4
+25. [Ejecución de script PHP](curso/u24)
+26. [Ejecución de script python](curso/u25)
 
 ### Seguridad
 
-26. Configuración de HTTPS en Apache 2.4
-27. Introducción al módulo mod_security2
-28. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
+27. Configuración de HTTPS en Apache 2.4
+28. Introducción al módulo mod_security2
+29. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
 
 ### Otros temas
 
-29. Configuración de un proxy inverso en Apache 2.4
-30. Analizadores de logs: awstats
+30. Configuración de un proxy inverso en Apache 2.4
+31. Analizadores de logs: awstats
 
 
