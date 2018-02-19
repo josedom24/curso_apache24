@@ -34,7 +34,7 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, ...
 15. [Control de acceso. Autorización](curso/u15)
 16. [Autentificación básica](curso/u16)
 17. [Autentificación digest](curso/u17)
-18. Implementando políticas de autentificación y acceso
+18. [Implementación de políticas de autentificación y acceso](curso/u18)
 
 ### Ficheros .htaccess
 
