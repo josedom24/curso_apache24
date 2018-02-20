@@ -55,13 +55,14 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, option IncludesNoExec ...
 
 ### Seguridad
 
-27. Configuración de HTTPS en Apache 2.4
-28. Introducción al módulo mod_security2
-29. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
+27. Introducción a SSL / TLS
+28. Obtener certificado en Letsˋs Encrypt
+29. Configuración de HTTPS en Apache 2.4
+30. Introducción al módulo mod_security2
+31. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
 
 ### Otros temas
 
-30. Configuración de un proxy inverso en Apache 2.4
-31. Analizadores de logs: awstats
-
+32. Configuración de un proxy inverso en Apache 2.4
+33. Analizadores de logs: awstats
 
