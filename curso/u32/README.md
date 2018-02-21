@@ -61,13 +61,9 @@ O de esta otra forma:
 
 La página que servimos a través del proxy que se guarda en el servidor interno puede tener declarada rutas, por ejemplo en imágenes o enlaces. Nos podemos encontrar con diferentes tipos de rutas:
 
-* `http://interno.example.org/img/imagen.jpg`
-* `/imagen.jpg`
-* `imagen.jpg`
-
-* La primera es una ruta absoluta donde aparece la dirección del servidor interno y que evidentemente el cliente no va a poder seguir.
-* La segunda es una ruta absoluta, referenciada a la raíz del `DocumentRoot`.
-* La tercera es una ruta relativa.
+* `http://interno.example.org/imagen.jpg`: Una ruta absoluta donde aparece la dirección del servidor interno y que evidentemente el cliente no va a poder seguir.
+* `/imagen.jpg`: Una ruta absoluta, referenciada a la raíz del `DocumentRoot`.
+* `imagen.jpg`: Una ruta relativa.
 
 Si tenemos una ruta relativa, el cliente la va a poder seguir sin problema cuando accede a través del proxy, pero si tenemos una ruta como la segunda no lo va a poder hacer, porque en el `DocumentRoot` del proxy no existe este recurso.
 
