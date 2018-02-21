@@ -39,7 +39,7 @@ Evidentemente debe funcionar la resolución de nombre para que el proxy pueda ac
 
 De esta manera al acceder desde el cliente la URL `http://proxy.example.org/web/` se mostraría la página que se encuentra en el servidor interno.
 
-### El probelmas de las redirecciones
+### El probelma de las redirecciones
 
 Cuando creamos una redirección en un servidor web y el cliente intenta acceder al recurso, el servidor manda una respuesta con código de estado `301` o `302`, e indica la URL de la nueva ubicación del recurso en una cabecera HTTP llamada `Location`.
 
