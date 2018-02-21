@@ -1,8 +1,8 @@
 # Configuración de un proxy inverso
 
- Un proxy inverso es un tipo de servidor proxy que recupera recursos en nombre de un cliente desde uno o más servidores. Por lo tanto el cliente hace la petición al puerto 80 y es el proxy el que hace la petición al servidor web que normalmente está en una red interna no accesible desde el cliente.
+Un proxy inverso es un tipo de servidor proxy que recupera recursos en nombre de un cliente desde uno o más servidores. Por lo tanto el cliente hace la petición al puerto 80 del proxy, y éste es el que hace la petición al servidor web que normalmente está en una red interna no accesible desde el cliente.
 
- ![proxy](img/proxy.png)
+![proxy](img/proxy.png)
 
 ## Apache como proxy inverso
 
