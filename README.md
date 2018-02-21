@@ -63,6 +63,6 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, option IncludesNoExec ...
 
 ### Otros temas
 
-32. Configuración de un proxy inverso en Apache 2.4
+32. [Configuración de un proxy inverso](curso/u32)
 33. Analizadores de logs: awstats
 
