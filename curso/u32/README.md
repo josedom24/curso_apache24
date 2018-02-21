@@ -25,7 +25,7 @@ Tenemos a nuestra disposición un servidor interno (no accesible desde el client
 ### Sirviendo una página estática
 
 En nuestro servidor interno hemos creado un virtual host para servir una página estática, `index.html`.
-Vamos a utilizar la directiva [`ProvyPass`]() en el fichero de configuración del virtual host, de la siguiente forma:
+Vamos a utilizar la directiva [`ProvyPass`](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypass) en el fichero de configuración del virtual host, de la siguiente forma:
 
 	ProxyPass "/web/" "http://interno.example.org/"
 
@@ -43,4 +43,37 @@ De esta manera al acceder desde el cliente la URL `http://proxy.example.org/web/
 
 Cuando creamos una redirección en un servidor web y el cliente intenta acceder al recurso, el servidor manda una respuesta con código de estado `301` o `302`, e indica la URL de la nueva ubicación del recurso en una cabecera HTTP llamada `Location`.
 
-Si hemos configurado una redirección en el servidor interno, cuando se accede al recurso a través del proxy, la redirección de seraliza pero la cabecera `Location` viene referencia con la dirección del servidor interno, por lo que el cliente es incapaz de acceder a la nueva ubicación
+Si hemos configurado una redirección en el servidor interno, cuando se accede al recurso a través del proxy, la redirección de seraliza pero la cabecera `Location` viene referencia con la dirección del servidor interno, por lo que el cliente es incapaz de acceder a la nueva ubicación. Para solucionarlo utilizamos la directiva [`ProxyPassReverse`](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypassreverse) que se encarga de resscribir la URL de la cabacera `Location`.
+
+La configuración quedaría:
+
+	ProxyPass "/web/" "http://interno.example.org/"
+	ProxyPassReverse "/web/" "http://interno.example.org/"
+
+O de esta otra forma:
+
+	<Location "/web/">
+		ProxyPass "http://interno.example.org/"
+		ProxyPassReverse "http://interno.example.org/"
+	</Location>
+
+### El problema de las rutas HTML
+
+La página que servimos a través del proxy que se guarada en el servidor interno puede tener declarada rutas, por ejemplo en imágenes o enlaces. Nos podemos encontrar con difrentes tipos de rutas:
+
+* `http://interno.example.org/img/imagen.jpg`
+* `/imagen.jpg`
+* `imagen.jpg`
+
+* La primera es una ruta absoluta donde aparece la dirección del servidor interno y que evidentemente el cliente no va a poder seguir.
+* La segunda es una ruta absoluta, referenciada a la raíz del `DocumentRoot`.
+* La tercera es una ruta relativa.
+
+Si tenemos una ruta relativa, el cliente la va a poder seguir sin problema cuando accede a través del proxy, pero si tenemos una ruta como la segunda no lo va a poder hacer, porque en el `DocumentRoot` del proxy no existe este recurso.
+
+Para solucionar este problema debemos reescribir el HTML para cambiar la referencia del enlace. Para ello necesitamos activar un nuevo módulo:
+
+	# a2enmod proxy_html
+
+Y realizar la siguiente configuración:
+
