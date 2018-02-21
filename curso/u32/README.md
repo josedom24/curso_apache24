@@ -1,12 +1,12 @@
 # Configuración de un proxy inverso
 
- Un proxy inverso es un tipo de servidor proxy que recupera recursos en nombre de un cliente desde uno o más servidores. Por lo tanto el cliente hace la petición al puerto 80 y es el proxy el que hace la petición al servidor web que normamente está en una red interna no accesible desde el cliente.
+ Un proxy inverso es un tipo de servidor proxy que recupera recursos en nombre de un cliente desde uno o más servidores. Por lo tanto el cliente hace la petición al puerto 80 y es el proxy el que hace la petición al servidor web que normalmente está en una red interna no accesible desde el cliente.
 
  ![proxy](img/proxy.png)
 
 ## Apache como proxy inverso
 
-Apache2.4 puede funcionar como proxy inverso usando el módulo `proxy` juanto a otros módulos, por ejemplo:
+Apache2.4 puede funcionar como proxy inverso usando el módulo `proxy` junto a otros módulos, por ejemplo:
 
 * proxy_http: Para trabajar con el protocolo HTTP.
 * proxy_ftp: Para trabajar con el protocolo FTP.
@@ -20,7 +20,7 @@ Por lo tanto, para empezar, vamos activar los módulos que necesitamos:
 
 ## Ejemplo de utilización de proxy inverso
 
-Tenemos a nuestra disposición un servidor interno (no accesible desde el cliente) en la dirección 192.168.1.2, con el nombre de `interno.example.org`. Tenemos un servidor que va a funcionar de proxy, llamado `proxy.example.org` con dos intyerfaces de red: una pública conectada a la red donde se encuentra el cliente, y otra interna conectada a la red donde se encuentra el servidor interno.	
+Tenemos a nuestra disposición un servidor interno (no accesible desde el cliente) en la dirección 192.168.1.2, con el nombre de `interno.example.org`. Tenemos un servidor que va a funcionar de proxy, llamado `proxy.example.org` con dos interfaces de red: una pública conectada a la red donde se encuentra el cliente, y otra interna conectada a la red donde se encuentra el servidor interno.	
 
 ### Sirviendo una página estática
 
@@ -43,7 +43,7 @@ De esta manera al acceder desde el cliente la URL `http://proxy.example.org/web/
 
 Cuando creamos una redirección en un servidor web y el cliente intenta acceder al recurso, el servidor manda una respuesta con código de estado `301` o `302`, e indica la URL de la nueva ubicación del recurso en una cabecera HTTP llamada `Location`.
 
-Si hemos configurado una redirección en el servidor interno, cuando se accede al recurso a través del proxy, la redirección de seraliza pero la cabecera `Location` viene referencia con la dirección del servidor interno, por lo que el cliente es incapaz de acceder a la nueva ubicación. Para solucionarlo utilizamos la directiva [`ProxyPassReverse`](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypassreverse) que se encarga de resscribir la URL de la cabacera `Location`.
+Si hemos configurado una redirección en el servidor interno, cuando se accede al recurso a través del proxy, la redirección se realiza pero la cabecera `Location` viene referencia la dirección del servidor interno, por lo que el cliente es incapaz de acceder a la nueva ubicación. Para solucionarlo utilizamos la directiva [`ProxyPassReverse`](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypassreverse) que se encarga de reescribir la URL de la cabecera `Location`.
 
 La configuración quedaría:
 
@@ -59,7 +59,7 @@ O de esta otra forma:
 
 ### El problema de las rutas HTML
 
-La página que servimos a través del proxy que se guarada en el servidor interno puede tener declarada rutas, por ejemplo en imágenes o enlaces. Nos podemos encontrar con difrentes tipos de rutas:
+La página que servimos a través del proxy que se guarda en el servidor interno puede tener declarada rutas, por ejemplo en imágenes o enlaces. Nos podemos encontrar con diferentes tipos de rutas:
 
 * `http://interno.example.org/img/imagen.jpg`
 * `/imagen.jpg`
@@ -77,12 +77,53 @@ Para solucionar este problema debemos reescribir el HTML para cambiar la referen
 
 Y realizar la siguiente configuración:
 
-	ProxyPass "/ejercicio1/"  "http://ejercicio.gonzalonazareno.org/"
-	ProxyPassReverse "/ejercicio1/"  "http://ejercicio.gonzalonazareno.org/"
-	ProxyHTMLURLMap http://ejercicio.gonzalonazareno.org /ejercicio1
-	<Location /ejercicio1/>
+	ProxyPass "/web/"  "http://interno.example.org/"
+	ProxyPassReverse "/web/"  "http://interno.example.org/"
+	ProxyHTMLURLMap http://interno.example.org /web
+	<Location /web/>
 	    ProxyPassReverse /
 	    ProxyHTMLEnable On
-	    ProxyHTMLURLMap / /ejercicio1/
-	    RequestHeader    unset  Accept-Encoding
+	    ProxyHTMLURLMap / /web/
 	</Location>
+
+Como vemos hemos configurado un proxy para HTML, que será responsable de reescribir todos las rutas que contiene el HYML, utilizando la directiva [`ProxyHTMLURLMap`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_html.html#proxyhtmlurlmap):
+
+	ProxyHTMLURLMap http://interno.example.org /web
+
+Es importante no poner la barra final, cuando se encuentra una ruta que coincide con el primer patrón se reescribe con el segundo, esta regla reescribe las ruta del tipo de la tercera opción que hemos visto anteriormente. Para arreglar la rutas de la segunda opción, utilizamos dentro de la sección `Location`:
+
+	ProxyHTMLURLMap / /web/
+
+Después de iniciar comprobamos que al intentar acceder al proxy obtenemos un error en el navegador del cliente "Error de codificación de contenido".
+
+### Sirviendo contenido multimedia
+
+Acabamos de configurar un proxy que examina y reescribe el HTML de nuestro sitio web, pero evidentemente existe más contenido en nuestro sitio que no es HTML y no debería ser procesado por `proxy_html`. Esto se soluciona verificando la cabecera del contenido y rechazando todos los contenidos que no tengan el tipo MIME adecuado.
+
+Pero tenemos un problema: normalmente se comprime el contenido HTML, y encontramos cabeceras de este tipo:
+
+	Content-Type: text/html
+    Content-Encoding: gzip
+
+Este contenido no debería pasar por el analizador de `proxy_html`. Para solucionar esto podemos negarnos a admitir la compresión. La eliminación de cualquier cabecera de petición  `Accept-Encoding` hace el trabajo. Para ello podemos utilizar la directiva [`RequestHeader`](http://httpd.apache.org/docs/current/mod/mod_headers.html#requestheader) del módulos `headers`, por lo tanto activamos el módulo:
+
+	# a2enmod headers
+
+Y usamos la directiva `RequestHeader` dentro del la sección `Location`:
+
+	ProxyPass "/web/"  "http://interno.example.org/"
+	ProxyPassReverse "/web/"  "http://interno.example.org/"
+	ProxyHTMLURLMap http://interno.example.org /web
+	<Location /web/>
+	    ProxyPassReverse /
+	    ProxyHTMLEnable On
+	    ProxyHTMLURLMap / /web/
+	    RequestHeader unset Accept-Encoding
+	</Location>
+	
+Ahora si podemos acceder a la página completa a través del proxy.
+
+### Sirviendo contenido con HTTPS
+
+Una situación similar surge en el caso del contenido encriptado (https). En este caso, usando el módulo `ssl` y un certificado en el proxy, de modo que la sesión segura real se encuentre entre el navegador y el proxy, no al servidor interno.
+
