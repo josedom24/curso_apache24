@@ -56,7 +56,7 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, option IncludesNoExec ...
 ### Seguridad
 
 27. [Introducción a HTTPS](curso/u27)
-28. Obtener certificado en Letsˋs Encrypt
+28. [Obtener un certificado en Letsˋs Encrypt](curso/u28)
 29. Configuración de HTTPS en Apache 2.4
 30. Introducción al módulo mod_security2
 31. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
