@@ -55,7 +55,7 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, option IncludesNoExec ...
 
 ### Seguridad
 
-27. Introducción a SSL / TLS
+27. [Introducción a HTTPS](curso/u27)
 28. Obtener certificado en Letsˋs Encrypt
 29. Configuración de HTTPS en Apache 2.4
 30. Introducción al módulo mod_security2
