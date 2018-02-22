@@ -12,7 +12,7 @@ certificados.
 * El formato de los certificados está especificado por el estándar X.509 y normalmente
 son emitidos por una entidad denominada **Autoridad Certificadora** (CA por sus siglas en inglés).
 * En el caso de HTTPS, la función principal de la CA es demostrar la autenticidad
-del servidor y que pertence legítimamente a la persona u organización que lo utiliza.
+del servidor y que pertenece legítimamente a la persona u organización que lo utiliza.
 Dependiendo de los criterios utilizados para comprobar la autenticidad del servidor se
 emiten diferentes tipos de certificados X.509 (actualmente se usa el llamado *Extended
 Validation Certificate*).
@@ -21,8 +21,8 @@ Validation Certificate*).
 
 El funcionamiento de forma esquemática de HTTPS la podríamos resumir en el siguiente gráfico:
 
-|[https](img/https.png)
+![https](img/https.png)
 
-Em la siguiente unidad vamos a utilizar la CA Let Encrypt para conseguir un certificado X.509 para nuestro servidor. Let's Encrypt​ es una autoridad de certificación que se puso en marcha el 12 de abril de 2016 y que proporciona certificados X.509 gratuitos para el cifrado de Seguridad de nivel de transporte (TLS).
+Eb la siguiente unidad vamos a utilizar la CA Let's Encrypt para conseguir un certificado X.509 para nuestro servidor. Let's Encrypt​ es una autoridad de certificación que se puso en marcha el 12 de abril de 2016 y que proporciona certificados X.509 gratuitos para el cifrado de Seguridad de nivel de transporte (TLS).
 
-Hay otras CA que nos propocionan certificados y que no son gratuitos. Estas CA tendrán métodos más robustos  para validar el servidor, la persona u organismo que solicita el certificado. Y por tanto pueden dar un nivel más elevado de confianza.
+Hay otras CA que nos proporcionan certificados y que no son gratuitos. Estas CA tendrán métodos más robustos  para validar el servidor, la persona u organismo que solicita el certificado. Y por tanto pueden dar un nivel más elevado de confianza.
