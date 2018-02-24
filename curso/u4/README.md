@@ -16,6 +16,16 @@ El fichero principal de configuración de Apache2 es `/etc/apache2/apache2.conf`
 * Del directorio `conf-enabled` añadimos ficheros de configuración adicionales.
 * Por último en el fichero `ports.conf` se especifica los puertos de escucha del servidor.
 
+## Añadir nueva configuración
+
+Si tenemos configuracióna dicional para nuestro servidor podemos gurdarla en un fichero (pro ejemplo `prueba.conf`) dentro del directorio `/etc/apache2/conf-available`. Para añadir dicho fichero de configuración a la configuración general del servidor usamos la instucción:
+
+	# a2enconf prueba
+
+Esta instrucción crea un enlace simbólico en el directorio `/etc/apache2/conf-enabled`. Para desactivar una configuración usamos:
+
+	# a2disconf prueba 
+
 ## Opciones de configuración para los servidores virtuales
 
 Por defecto se indican las opciones de configuración del directorio `/var/www` y de todos sus subdirectorios, por lo tanto los `DocumentRoot` de los virtualhost que se crean deben ser subdirectorios del este directorio:

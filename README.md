@@ -1,6 +1,5 @@
 # Curso: servidor web Apache 2.4
-
-Cosas no vistas: Files, a2enconf a2disconf, envvar, option IncludesNoExec ...
+ envvar, option IncludesNoExec ...
 
 ## Unidades
 
