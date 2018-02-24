@@ -9,11 +9,16 @@ El lema de [CAcert](http://www.cacert.org/) es *Free digital certificates for ev
 Los pasos que hay que dar para utilizar un certificado X.509 emitido por CAcert son los siguientes:
 
 * Darse de alta como usuario en el sitio web.
-* Dar de alta el dominio para el que queremos obtener el certificado.
-* CAcert verifica que podemos hacer uso legítimo del dominio enviando un mensaje de correo electrónico.
+* Dar de alta el dominio para el que queremos obtener el certificado. (opción **Domains -> Add**)
+* CaCert verifica que podemos hacer uso legítimo del dominio enviando un mensaje de correo electrónico.
 * Dar de alta el certificado de un servidor mediante una solicitud de firma certificado (CSR).
 * Configurar el servidor web con el certificado X.509 emitido por la CA.
 
+## Instalación del certificado raíz de CaCert
+
+Una limitación que tiene el uso de este CA, es que su certificado raíz no está instalado por defecto en los navegadores, por lo tanto tenemos que instalarlo manualmente. Para ello, simplemente vamos a la página web de CaCert y en la opción **Certificado raíz** podemos descargar la versión **Certificado Raíz (Formato PEM)**. A continuación marcamos la opción: *Confiar en esta CA para identificar sitios web* y ya la tenemos instalada.
+
+Este proceso nos puede ayudar a entender la circunstancia de que una empresa tenga su propia CA para gestionar sus propios certificados y ,por ejemplo, sus empleados tengan que instalar el certificado raíz de una forma similar.
  
 ## Creación del CSR
 
@@ -32,5 +37,7 @@ Utilizando la clave privada, generamos una CSR mediante la instrucción:
 
 El CSR contiene información que será incluida finalmente en el certificado SSL, como por ejemplo tu nombre o el de al empresa, la dirección, el país de residencia o el common name (dominio para el que es generado el SSL), además de estos datos también incluirá un clave pública que será incluida también en tu certificado.
 
+
+Este fichero csr es el que enviamos a la CA a través del formulario web (opción **Server Certificates -> New**), que lo procesa y obtiene a partir de él un certificado X.509 compatible con nuestra clave privada, pero emitido por la CA. 
 
 
