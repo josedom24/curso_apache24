@@ -5,7 +5,7 @@ Estudiemos algunas directivas que podemos encontrar en `/etc/apache2/apache2.con
 ## Directivas de control de la conexión
 
 * [Timeout](http://httpd.apache.org/docs/2.4/mod/core.html#timeout): define, en segundos, el tiempo que el servidor esperará por recibir y transmitir durante la comunicación. Timeout está configurado por defecto a 300 segundos, lo cual es apropiado para la mayoría de las situaciones. 
-* [KeepAlive](http://httpd.apache.org/docs/2.4/mod/core.html#keepalive): Define si las conexiones persistentes están activadas. Por defecto están activades.
+* [KeepAlive](http://httpd.apache.org/docs/2.4/mod/core.html#keepalive): Define si las conexiones persistentes están activadas. Por defecto están activadas.
 * [MaxKeepAliveRequests](http://httpd.apache.org/docs/2.4/mod/core.html#maxkeepaliverequests): Establece el número máximo de peticiones permitidas por cada conexión persistente. Por defecto está establecido como 100.
 * [KeepAliveTimeout](http://httpd.apache.org/docs/2.4/mod/core.html#keepalivetimeout): Establece el número de segundos que el servidor esperará tras haber dado servicio a una petición, antes de cerrar la conexión. Por defecto 5 segundos.
 
