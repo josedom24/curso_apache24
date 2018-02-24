@@ -58,7 +58,7 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, option IncludesNoExec ...
 27. [Introducción a HTTPS](curso/u27)
 28. [Obtener un certificado en CAcert](curso/u28)
 29. [Configuración de HTTPS](curso/u29)
-30. Introducción al módulo mod_security2
+30. [Introducción al módulo mod_security2](curso/u30)
 31. Consejos de seguridad en apache 2.4 (https://openwebinars.net/blog/consejos-seguridad-servidores-apache/)
 
 ### Otros temas
