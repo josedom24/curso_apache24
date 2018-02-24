@@ -34,8 +34,58 @@ Por defecto tenemos un conjunto de reglas activadas, que llamamos CRS (*Core Rul
 
 Las reglas se encuentran en el directorio `/usr/share/modsecurity-crs/rules`.
 
+## Demostración: vitar un ataque SQL Injection
 
+Tenemos preparado un servidor LAMP, donde hemos creado una tabla con usuarios y contraseñas:
 
+	# mysql -u root -p
+    mysql> create database sample;
+    mysql> use sample;
+    mysql> create table users(username VARCHAR(100),password VARCHAR(100));
+    mysql> insert into users values('pepe','password');
 
-/usr/share/modsecurity-crs/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf
+Y una aplicación PHP (`login.php`) que realiza la operación de 'login':
 
+	<html>
+	<body>
+	<?php
+	    if(isset($_POST['login']))
+	    {
+	        $username = $_POST['username'];
+	        $password = $_POST['password'];
+	        $con = mysqli_connect('localhost','root','your_mysql_password','sample');
+	        $result = mysqli_query($con, "SELECT * FROM `users` WHERE username='$username' AND password='$password'");
+	        if(mysqli_num_rows($result) == 0)
+	            echo 'Invalid username or password';
+	        else
+	            echo '<h1>Logged in</h1><p>This is text that should only be displayed when logged in with valid credentials.</p>';
+	    }
+	    else
+	    {
+	?>
+	        <form action="" method="post">
+	            Username: <input type="text" name="username"/><br />
+	            Password: <input type="password" name="password"/><br />
+	            <input type="submit" name="login" value="Login"/>
+	        </form>
+	<?php
+	    }
+	?>
+	</body>
+	</html>
+
+El programa parece que funciona correctamente, pero sin necesidad de poner contraseña, podemos acceder si introducimos como nombre de usuario la cadena:
+
+	' or true -- 
+
+Nota: Es importante señalar que la cadena termina en un espacio.
+
+Si lo probamos y comprobamos el fichero de log de auditoria podemos encontrar que se ha detectado el ataque:
+
+	Message: Warning. detected SQLi using libinjection with fingerprint 's&1' [file "/usr/share/modsecurity-crs/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf"] ...
+
+Como vemos la regla que detecta el *SQL injection* se encuentra definida en el fichero `/usr/share/modsecurity-crs/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf`.
+
+Para terminar podemos evitar que se produzca el ataque habilitando el módulo en el fichero de configuración `/etc/modsecurity/modsecurity.conf`
+
+	SecRuleEngine On
