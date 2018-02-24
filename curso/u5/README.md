@@ -16,3 +16,4 @@ Estudiemos algunas directivas que podemos encontrar en `/etc/apache2/apache2.con
 * [LogLevel](http://httpd.apache.org/docs/2.4/mod/core.html#loglevel)
 * [LogFormat](http://httpd.apache.org/docs/2.4/mod/mod_log_config.html#logformat)
 * [Directory](http://httpd.apache.org/docs/2.4/mod/core.html#directory)
+* [Files](http://httpd.apache.org/docs/2.4/mod/core.html#files)
