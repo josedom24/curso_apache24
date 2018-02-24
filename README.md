@@ -1,5 +1,4 @@
 # Curso: servidor web Apache 2.4
- envvar, option IncludesNoExec ...
 
 ## Unidades
 
