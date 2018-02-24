@@ -16,7 +16,7 @@ Con esta herramienta podemos obtener también más información del servidor:
 
 * `apache2ctl -t` : Comprueba la sintaxis del fichero de configuración.
 * `apache2ctl -M` : Lista los módulos cargados
-* `apache2ctl -S` : Lista los sitios virtuales.
+* `apache2ctl -S` : Lista los sitios virtuales y las opciones de configuración.
 * `apache2ctl -V` : Lista las opciones de compilación
 
 Evidentemente el servidor está gestionado por el Systemd, por lo tanto para gestionar el arranque, reincio y parada del servicio utilizaremos la siguiente instrucción:
