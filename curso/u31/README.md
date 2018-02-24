@@ -47,11 +47,29 @@ Comentamos o quitamos la línea que permite mostrar el índice de ficheros y dir
 
 ## Limitar tamaño de peticiones 
 
+ Por defecto Apache no establece ningún límite para las peticiones HTTP. Si ponemos un límite podemos evitar  un ataque por denegación del servicio. Mediante la directiva `LimitRequestBody` podremos establecer un límite comprendido entre 0 (sin límite) y 2147483647 (2GB).
 
+Si por ejemplo tenemos una web y queremos permitir que se suban archivos de más de 500k, deberemos aplicar esta configuración:
+
+	<Directory "var/www/pagina1/subida_usuario">
+		LimitRequestBody 512000
+	</Directory>
 
 ## Limitar acceso a sistemas de control de versiones
 
-## Limitar tamaño de peticiones 
+Si estamos trabajando con Git en nuestro sitio web sería necesario limitar el acceso al directorio `.git`. En el fichero `/etc/apache2/conf-enabled/security.conf` tenemos un ejemplo comentado para subversion, para git podríamos tener esta configuración:
+
+	#<DirectoryMatch "/\.git">
+		Require all denied
+	</DirectoryMatch>
 
 ## Mantenernos actualizados 
 
+Por último es muy importante mantener actualizado el servidor web con los parches de seguridad que se van publicando en nuestro sistema, para ello:
+
+	# apt-get update
+	# apt-get upgrade
+
+	# apache2ctl -v
+	Server version: Apache/2.4.25 (Debian)
+	Server built:   2017-09-19T18:58:57
