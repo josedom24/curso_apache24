@@ -75,4 +75,6 @@ Necesitamos instalar el módulo de proxy:
     
     # a2enmod proxy proxy_http
 
+libapache2-mod-proxy-uwsgi
+
 FALTA!!!!!!!!!!!!!
