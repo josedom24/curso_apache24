@@ -51,7 +51,7 @@ Cosas no vistas: Files, a2enconf a2disconf, envvar, option IncludesNoExec ...
 
 24. [Módulos de Multiprocesamiento (MPM)](curso/u24)
 25. [Ejecución de script PHP](curso/u25)
-26. [Ejecución de script python](curso/u26)
+26. [Ejecución de script python](curso/u26) FALTA!!!
 
 ### Seguridad
 
