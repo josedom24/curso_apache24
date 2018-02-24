@@ -59,7 +59,7 @@ Si por ejemplo tenemos una web y queremos permitir que se suban archivos de más
 
 Si estamos trabajando con Git en nuestro sitio web sería necesario limitar el acceso al directorio `.git`. En el fichero `/etc/apache2/conf-enabled/security.conf` tenemos un ejemplo comentado para subversion, para git podríamos tener esta configuración:
 
-	#<DirectoryMatch "/\.git">
+	<DirectoryMatch "/\.git">
 		Require all denied
 	</DirectoryMatch>
 
