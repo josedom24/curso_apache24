@@ -4,8 +4,8 @@
 
 Como hemos visto anteriormente el control de acceso en versiones anteriores de Apache2, se hacía con las directivas `Order`, `Allow` y `Deny`. Además teníamos otra directiva [`Satisfy`](http://httpd.apache.org/docs/2.2/mod/core.html#satisfy) (**Nota: Esta directiva no existe en Apache 2.4**) que nos permitía controlar como el se debía comportar el servidor cuando tenemos varios instrucciones de control de acceso (`allow`, `deny` , `require`). de esta manera:
 
-	* `Satisfy All`: Se tenían que cumplir todas las condiciones para obtener el acceso.
-	* `Satisfy Any`: Bastaba con que se cumpliera una de las condiciones.
+* `Satisfy All`: Se tenían que cumplir todas las condiciones para obtener el acceso.
+* `Satisfy Any`: Bastaba con que se cumpliera una de las condiciones.
 
 Ejemplo:
 
