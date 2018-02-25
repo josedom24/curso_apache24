@@ -81,7 +81,7 @@ Podemos crear varios bloques como vemos en el siguiente ejemplo:
 
 ## Demostración
 
-Teenmso un recurso que para acceder tenemos que autentificarnos, además a ese recurso sólo puedo acceder desde la red interna. Puede implementar dos políticas: 
+Tenemos un recurso que para acceder tenemos que autentificarnos, además a ese recurso sólo puedo acceder desde la red interna. Puede implementar dos políticas: 
 
 * Se deben cumplir las dos: el recurso sólo es accesible desde la red interna y habiéndonos autentificados.
 * Se debe cumplir una de las dos: el recurso es accesible de la red interna, sin necesidad de autentificarnos, y es accesible desde la red externa pero nos debemos autentificar.
