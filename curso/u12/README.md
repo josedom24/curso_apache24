@@ -8,7 +8,7 @@ Para llevar a cabo esta funcionalidad Apache2 utiliza el módulo `negotiation_mo
 
 ## Configuración del módulo de negociación de contenidos con Multiviews
 
-Queremos que al acceder a la ULR `www.pagina1.org/internacional` se muetre un `index.html` con el idioma adecuado según la cabacera `Accept-Languaje` enviada por el cliente.
+Queremos que al acceder a la ULR `www.pagina1.org/internacional` se muestre un `index.html` con el idioma adecuado según la cabecera `Accept-Languaje` enviada por el cliente.
 
 Lo primero que tenemos es crear varios ficheros `index.html` con los distintos idiomas ofrecidos por el servidor:
 
@@ -17,7 +17,7 @@ Lo primero que tenemos es crear varios ficheros `index.html` con los distintos i
 
 Hemos creado dos ficheros: [`index.html.en`](https://raw.githubusercontent.com/josedom24/curso_apache24/master/curso/u12/fich/index.html.en) para el idioma inglés y [`index.html.es`](https://raw.githubusercontent.com/josedom24/curso_apache24/master/curso/u12/fich/index.html.es) para el español.
 
-A continuación debemos activar la opción `Multiviwes` para el directorio con el que estamos trabajando, por lo tanto en el fichero de configuración del virtual host `/wtc/apache2/sites-availables/paginaq.conf` creamos una sección `Directory`:
+A continuación debemos activar la opción `Multiviews` para el directorio con el que estamos trabajando, por lo tanto en el fichero de configuración del virtual host `/etc/apache2/sites-availables/pagina1.conf` creamos una sección `Directory`:
 
 	...
 	<Directory /var/www/html/internacional>
@@ -29,9 +29,9 @@ Ya tan sólo tenemos que configurar el idioma en el navegado y acceder a la URL 
 
 ## Configuración del módulo de negociación de contenidos con ficheros type-map
 
-Un [`handler`](https://httpd.apache.org/docs/2.4/es/handler.html) es una representación interna de Apache de una acción que se va a ejecutar cuando hay una llamada a un fichero. Generalmente, los ficheros tienen handlers implícitos, basados en el tipo de fichero de que se trata. Normalmente, todos los ficheros son simplemente servidos por el servidor, pero algunos tipos de ficheros se tratan de forma diferente.
+Un [`handler`](https://httpd.apache.org/docs/2.4/es/handler.html) es una representación interna de Apache de una acción que se va a ejecutar cuando hay una llamada a un fichero. Generalmente, los ficheros tienen *handlers* implícitos, basados en el tipo de fichero de que se trata. Normalmente, todos los ficheros son simplemente servidos por el servidor, pero algunos tipos de ficheros se tratan de forma diferente.
 
-Nosotros vamos a tener un fichero especial que denominamos type-map con extensión `var` al que hay que vamos a crear un handler para manejarlo de una manera especial para el negociado de contenidos.
+Nosotros vamos a tener un fichero especial que denominamos *type-map* con extensión `var` al que hay que vamos a crear un *handler* para manejarlo de una manera especial para el negociado de contenidos.
 
 Los ficheros de tipo mapa tienen una entrada para cada variante disponible. Estas entradas consisten en líneas de cabecera contiguas en formato HTTP. Las entradas para diferentes variantes se separan con líneas en blanco. Las líneas en blanco no están permitidas dentro de una entrada. Existe el acuerdo de empezar un fichero mapa con una entrada para la entidad combinada como un todo.
 
