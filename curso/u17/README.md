@@ -26,6 +26,10 @@ Al igual que ocurría con `htpasswd`, la opción `-c` (create) sólo debemos de 
     josemaria:dominio:8d6af4e11e38ee8b51bb775895e11e0f
     gemma:dominio:dbd98f4294e2a49f62a486ec070b9b8c
 
-## Ejercicios
+## Demostración
+
+Autentificación digest al directorio `www.pagina2.org\secreto`.
+
+## Ejercicio
 
 Crea dos subdirectorios en el host virtual `pagina1` que se llamen `grupo1` y `grupo2`. Crea varios usuarios con la utilidad `htdigest`, asignando a cada uno un dominio distinto (`domgrupo1` y `domgrupo2`). Configura los directorios para que al primero `grupo1` sólo puedan acceder los usuarios del dominio `domgrupo1`, y el directorio `grupo2` solo accedan los usuarios del dominio `domgrupo2`.
