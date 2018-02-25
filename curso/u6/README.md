@@ -8,7 +8,7 @@ Y por defecto este sitio virtual está habilitado, por lo que podemos comprobar 
 
     lrwxrwxrwx 1 root root   35 Oct  3 15:24 000-default.conf -> ../sites-available/000-default.conf
 
-En el fichero de configuración general ``/etc/apache2/apache2.conf`` nos encontramos las opciones de configuración del directorio padre del indicado en la directiva ``DocumentRoot`` (suponemos que todos los host virtuales van a estar guardados en subdirectorios de este directorio):
+En el fichero de configuración general `/etc/apache2/apache2.conf` nos encontramos las opciones de configuración del directorio padre del indicado en la directiva `DocumentRoot` (suponemos que todos los host virtuales van a estar guardados en subdirectorios de este directorio):
 
 	...
 	<Directory /var/www/>
@@ -18,7 +18,7 @@ En el fichero de configuración general ``/etc/apache2/apache2.conf`` nos encont
 	</Directory>
 	...
 
-Por lo tanto podemos acceder desde un navegador a la ip de nuestro servidor (también podemos usar un nombre del servidor) y accederemos a la página de bienvenida del servidor que se encuntra en:
+Por lo tanto podemos acceder desde un navegador a la ip de nuestro servidor (también podemos usar un nombre del servidor) y accederemos a la página de bienvenida del servidor que se encuentra en:
 
 	/var/www/html/index.html
 
