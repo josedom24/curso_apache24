@@ -19,13 +19,13 @@ Con esta herramienta podemos obtener también más información del servidor:
 * `apache2ctl -S` : Lista los sitios virtuales y las opciones de configuración.
 * `apache2ctl -V` : Lista las opciones de compilación
 
-Evidentemente el servidor está gestionado por el Systemd, por lo tanto para gestionar el arranque, reincio y parada del servicio utilizaremos la siguiente instrucción:
+Evidentemente el servidor está gestionado por `Systemd`, por lo tanto para controlar el arranque, reinicio y parada del servicio utilizaremos la siguiente instrucción:
 
 	systemctl [start|stop|restart|reload|status] apache2.service
 
 ## Instalación en CentOS
 
-En sistemas GNU/Linux CentOS/Red Hat tendráimos que ejecutar como administrador:
+En sistemas GNU/Linux CentOS/Red Hat tendríamos que ejecutar como administrador:
 
 	yum install httpd
 	systemctl start httpd
