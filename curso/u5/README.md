@@ -15,5 +15,5 @@ Estudiemos algunas directivas que podemos encontrar en `/etc/apache2/apache2.con
 * [`Group`](http://httpd.apache.org/docs/2.4/mod/mpm_common.html#group): define el grupo al que corresponde el usuario.
 * [`LogLevel`](http://httpd.apache.org/docs/2.4/mod/core.html#loglevel): Controla el nivel de información que se guarda en los ficheros de registro o logs.
 * [`LogFormat`](http://httpd.apache.org/docs/2.4/mod/mod_log_config.html#logformat): Controla el formato de información que se va a guardar en los ficheros logs.
-* [`Directory`](http://httpd.apache.org/docs/2.4/mod/core.html#directory)
-* [`Files`](http://httpd.apache.org/docs/2.4/mod/core.html#files)
+* [`Directory`](http://httpd.apache.org/docs/2.4/mod/core.html#directory) o [`DirectoryMatch`](http://httpd.apache.org/docs/2.4/mod/core.html#directorymatch): Declara un contexto para un directorio y todos sus directorios.
+* [`Files`](http://httpd.apache.org/docs/2.4/mod/core.html#files) o [`FilesMatch`](http://httpd.apache.org/docs/2.4/mod/core.html#filesmatch): Declara un contexto para un conjunto de ficheros.
