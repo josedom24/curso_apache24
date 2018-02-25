@@ -51,6 +51,21 @@ En Apache 2.4 quedaría:
    		Require all denied
     </FilesMatch>
 
+## Otro ejemplo
+
+En Apache 2.2 podríamos tener:
+
+	Order Deny,Allow
+	Deny from all
+	Allow from example.org
+
+En Apache 2.4 tendremos:
+
+	Require host example.org
+
+
+## RequireAll, RequireAny y RequireNone
+
 El uso de las directivas [`RequireAll`](https://httpd.apache.org/docs/2.4/es/mod/mod_authz_core.html#requireall), [`RequireAny`](https://httpd.apache.org/docs/2.4/es/mod/mod_authz_core.html#requireany), y [`RequireNone`](https://httpd.apache.org/docs/2.4/es/mod/mod_authz_core.html#requirenone) la estudiaremos en una unidad posterior.
 
 ## Demostración 
