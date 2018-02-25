@@ -24,7 +24,9 @@ Por ejemplo en la versión Apache 2.2 podemos encontrar esta configuración:
 		Allow from all
 	</Directory>
 
-El acceso esta denegado por defecto si no hay ninguna directiva `Allow` que permita el acceso.
+* Este es un modo **Denegar por defecto**. Donde le dará opcionalmente una lista de reglas *Permitir*.
+* Luego se marcan las reglas de *Permitir*, y el acceso de alguien dispuesto debe coincidir al menos con una regla.
+* Si alguien recibe permiso de una de las reglas *Permitir*, puedes rechazarlo con una regla de *Negar*. 
 
 En Apache 2.4 quedaría:
 
@@ -39,7 +41,9 @@ Otro ejemplo, por ejemplo para no permitir el acceso  a fichero `.htaccess`, pod
    		Deny from all
 	</FilesMatch>
 
-El acceso esta permitido por defecto a no se que se indique lo contrario, es decir se ejecute una directiva `deny`.
+* Este es un modo de **permitir por defecto**. Donde le dará opcionalmente una lista de reglas de *Denegar*.
+* Luego se verifican las reglas *Denegar*, para rechazar las solicitudes en función de estas reglas.
+* Si alguien es rechazado por una de las reglas de *Denegar*, puede que lo devuelva con una regla de *Permitir*. 
 
 En Apache 2.4 quedaría:
 
