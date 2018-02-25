@@ -3,12 +3,12 @@
 El módulo [`rewrite`](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) nos va a permitir acceder a una URL e internamente estar accediendo a otra. Ayudado por los ficheros `.htaccess`, el módulo `rewrite` nos va a ayudar a formar URL amigables que son más consideradas por los motores de búsquedas y mejor recordadas por los humanos. Por ejemplo estas URL:
 
     www.dominio.com/articulos/muestra.php?id=23
-    www.dominio.com/pueblos/pueblo.php?nombre=torrelodones
+    www.dominio.com/pueblos/pueblo.php?nombre=utrera
 
 Es mucho mejor escribirlas como:
 
     www.dominio.com/articulos/23.php
-    www.dominio.com/pueblos/torrelodones.php
+    www.dominio.com/pueblos/utrera.php
 
 ## Ejemplo 1: Cambiar la extensión de los ficheros
 
@@ -17,6 +17,8 @@ Si queremos usar la extensión `do` en vez de `html` podríamos usar este `.htac
         Options FollowSymLinks
         RewriteEngine On
         RewriteRule ^(.+).do$ $1.html [nc]
+
+El flag `[nc]` lo ponemos para no distinguir entre mayúsculas y minúsculas.
 
 Esto puede ser penalizado por los motores de búsqueda ya que podemos acceder a la misma página con dos URL distintas, para solucionar esto podemos hacer una redirección:
 
