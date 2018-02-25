@@ -34,6 +34,10 @@ Para denegar el acceso a algún usuario basta con que borremos la línea corresp
 
 La principal ventaja de este método es su sencillez. Sus inconvenientes: lo incómodo de delegar la generación de nuevos usuarios en alguien que no sea un administrador de sistemas o de hacer un front-end para que sea el propio usuario quien cambie su contraseña. Y, por supuesto, que dichas contraseñas viajan en claro a través de la red. Si queremos evitar esto último podemos configurtar Apache2 con SSL.
 
+## Demostración
+
+Autentificación básica al directorio `www.pagina1.org\secreto`.
+
 ## Ejercicio
 
 Realiza la auntenfificación básica de un directorio de un  virtual host que tengas en tu servidor. Crea varios usuarios que puedan acceder. A continuación crea un grupo de usuarios, y dale permiso de acceso a ese grupo (usando la directivas `AuthGroupFile` y `Require group`).
