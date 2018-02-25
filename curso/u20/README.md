@@ -2,7 +2,7 @@
 
 Uno de los aspectos característicos del servidor HTTP Apache es su modularidad, Apache tiene un sinfín de características adicionales que si estuvieran siempre incluidas, harían de él un programa demasiado grande y pesado. En lugar de esto, Apache se compila de forma modular y se cargan en memoria sólo los módulos necesarios en cada caso.
 
-Los módulos de sugardan en la configuración de apache2 en dos directorios:
+Los módulos se guardan en la configuración de apache2 en dos directorios:
 
 * `/etc/apache2/mods-available/`: Directorio que contiene los módulos disponibles en la instalación actual.
 * `/etc/apache2/mods-enabled/`: Directorio que incluye mediante enlaces simbólicos al directorio anterior, los módulos que se van a cargar en memoria la próxima vez que se inicie Apache.
@@ -32,7 +32,7 @@ directorio `/usr/lib/apache2/modules/`:
 	mod_actions.so		mod_deflate.so	    mod_proxy_ftp.so
 	...
 
-Pueden parecer muchos, pero son sólo los módulos de la instalación estándar y se incluyen dentro del paquete `apache2-data`. Hay otros muchos módulos que se distribuyen en paquetes separados, que en debian reciben el nombre `libapache2-mod-*`:
+Pueden parecer muchos, pero son sólo los módulos de la instalación estándar y se incluyen dentro del paquete `apache2-data`. Hay otros muchos módulos que se distribuyen en paquetes separados, que en *debian* reciben el nombre `libapache2-mod-*`:
 
 	# apt-cache search libapache2-mod
 	libapache2-mod-auth-ntlm-winbind - apache2 module for NTLM authentication against Winbind
@@ -43,7 +43,7 @@ Pueden parecer muchos, pero son sólo los módulos de la instalación estándar 
 ## Utilización de módulos
 
 Si vamos al directorio donde se ubican los módulos disponibles de Apache `/etc/apache2/mods-available` y hacemos un
-listado enonntramos ficheros `*.load` y `*.conf`.
+listado encontramos ficheros `*.load` y `*.conf`.
 
 Los ficheros con extensión `load` suelen incluir una línea con la directiva `LoadModule`, por ejemplo:
 
@@ -59,11 +59,11 @@ Si queremos que Apache utilice cualquier módulo, lo que tendríamos que hacer e
 	To activate the new configuration, you need to run:
 	  systemctl restart apache2
 
-Para desactivarlo (borrar el enlace simbólico) utilizamos la instrucción `a2dismod`. después de utilizar estos comandos hay que reinciar el servicio.
+Para desactivarlo (borrar el enlace simbólico) utilizamos la instrucción `a2dismod`. después de utilizar estos comandos hay que reiniciar el servicio.
 
 ## Módulos activos por defecto
 
-Para ver los móduclos activados en apache2:
+Para ver los módulos activados en apache2:
 
 	# apache2ctl -M
 
