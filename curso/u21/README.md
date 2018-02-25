@@ -1,8 +1,8 @@
 # Módulo userdir
 
-En sistemas con múltiples usuarios, cada usuario puede tener un website en su directorio home usando la directiva [`UserDir`](https://httpd.apache.org/docs/2.4/es/mod/mod_userdir.html#userdir). Los visitantes de una URL `http://example.com/~username/` recibirán el contenido del directorio home del usuario "username", en el subdirectorio especificado por la directiva UserDir.
+En sistemas con múltiples usuarios, cada usuario puede tener un sitio web en su directorio *home* usando el módulo `UserDir. Los visitantes de una URL `http://example.com/~username/` recibirán el contenido del directorio home del usuario "username", en el subdirectorio especificado por la directiva `UserDir`.
 
-La directiva `UserDir` la podemos modificar en el fichero `/etc/apache2/mods-available/userdir.conf`, y se puede configurar de distintas maneras:
+La directiva [`UserDir`](https://httpd.apache.org/docs/2.4/es/mod/mod_userdir.html#userdir) la podemos modificar en el fichero `/etc/apache2/mods-available/userdir.conf`, y se puede configurar de distintas maneras:
 
 * `UserDir public_html`: Valor por defecto, la URL `http://example.com/~rbowen/file.html` se traducirá en la ruta del fichero `/home/rbowen/public_html/file.html`.
 * `UserDir /var/html`: La URL `http://example.com/~rbowen/file.html` se traducirá en la ruta del fichero `/var/html/rbowen/file.html`.
