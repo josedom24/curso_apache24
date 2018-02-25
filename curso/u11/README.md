@@ -1,6 +1,6 @@
 # Trabajando con alias
 
-Los [Alias](http://httpd.apache.org/docs/2.4/mod/mod_alias.html#alias) nos permiten que el servidor sirva ficheros desde cualquier ubicación del sistema de archivo aunque este fuera del directorio indicado en el `DocuemntRoot`.	
+Las directiva [`Alias`](http://httpd.apache.org/docs/2.4/mod/mod_alias.html#alias) nos permite que el servidor sirva ficheros desde cualquier ubicación del sistema de archivo aunque este fuera del directorio indicado en el `DocumentRoot`.	
 
 Por ejemplo si pongo este alias en el fichero de configuración de `pagina1`:
 
