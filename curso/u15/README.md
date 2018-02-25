@@ -15,6 +15,11 @@ Podemos controlar el acceso a cualquier recurso o conjunto de recurso, por ejemp
 * `Require host dominio`: El acceso es permitido si se hace desde el dominio especificado.
 * `Require local`: El acceso es permitido desde `localhost`.
 
+
+Se puede usar el operador `not` para indicar la denegación, por ejemplo:
+
+	Require not ip 10.0
+
 En versiones anteriores de Apache se utilizaban otras directivas para controlar el acceso: [`Allow`](https://httpd.apache.org/docs/2.4/es/mod/mod_access_compat.html#allow), [`Deny`](https://httpd.apache.org/docs/2.4/es/mod/mod_access_compat.html#deny), y [`Order`](https://httpd.apache.org/docs/2.4/es/mod/mod_access_compat.html#order), están obsoletas y serán quitadas en futuras versiones.
 
 Por ejemplo en la versión Apache 2.2 podemos encontrar esta configuración:
