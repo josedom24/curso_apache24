@@ -8,7 +8,7 @@ Para determinar los puertos de escucha del servidor web utilizamos la directiva 
 
 `Listen` solo le dice al servidor principal en qué direcciones y puertos tiene que escuchar. Si no se usan directivas `<VirtualHost>`, el servidor se comporta de la misma manera con todas las peticiones que se acepten. Sin embargo, `<VirtualHost>` puede usarse para especificar un comportamiento diferente en una o varias direcciones y puertos. Para implementar un host virtual, hay que indicarle primero al servidor que escuche en aquellas direcciones y puertos a usar. Posteriormente se debe crear un una sección `<VirtualHost>` en una dirección y puerto específicos para determinar el comportamiento de ese host virtual. 
 
-Por defecto los Virtual Host que hemos definido responden desde cualquier IP en el puerto 80, en el fichero `/etc/apache2/sites-available/000-defualt.conf` encontramos:
+Por defecto los Virtual Host que hemos definido responden desde cualquier IP en el puerto 80, en el fichero `/etc/apache2/sites-available/000-default.conf` encontramos:
 
 	<VirtualHost *:80>
 	...
@@ -49,6 +49,8 @@ En esta ocasión hemos definido dos puertos de escucha en el fichero `/etc/apach
 
 	Listen 80
 	Listen 8080
+
+Y la configuración de los virtual host podría ser la siguiente:
 
 	<VirtualHost *:80>
     	ServerName www.example.com
