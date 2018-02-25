@@ -10,7 +10,7 @@ Podemos controlar el acceso a cualquier recurso o conjunto de recurso, por ejemp
 * `Require all denied`: El acceso es denegado incondicionalmente.
 * `Require user userid [userid] ...`: El acceso es permitido sólo si los usuarios indicados se han autentificado.
 * `Require group group-name [group-name] ...`: El acceso es permitido sólo a los grupos de usuarios especificados.
-* `Require valid-user`: El acceso es permitido a los usuarios váilidos.
+* `Require valid-user`: El acceso es permitido a los usuarios válidos.
 * `Require ip 10 172.20 192.168.2`: El acceso es permitido si se hace desde el conjunto de direcciones especificadas.
 * `Require host dominio`: El acceso es permitido si se hace desde el dominio especificado.
 
@@ -43,3 +43,8 @@ En Apache 2.4 quedaría:
     </FilesMatch>
 
 El uso de las directivas [`RequireAll`](https://httpd.apache.org/docs/2.4/es/mod/mod_authz_core.html#requireall), [`RequireAny`](https://httpd.apache.org/docs/2.4/es/mod/mod_authz_core.html#requireany), y [`RequireNone`](https://httpd.apache.org/docs/2.4/es/mod/mod_authz_core.html#requirenone) la estudiaremos en una unidad posterior.
+
+## Demostración 
+
+Permitir el acceso a `www.pagina1.org\intranet` sólo desde el cliente conectado a la red interna, y el acceso a `www.pagina1.org\internet` desde la red externa.
+
