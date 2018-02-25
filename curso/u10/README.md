@@ -21,7 +21,7 @@ En el fichero `/etc/apache2/apache2.conf`, nos encontramos el siguiente código:
 
 A continuación podría cambiar las opción del virtual host `pagina1`, incluyendo en su fichero de configuración:
 
-	<Directory /var/www/html/pagina1>
+	<Directory /var/www/pagina1>
 	    Options -Indexes +Multiviews
 	    ...
 
