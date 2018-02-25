@@ -15,10 +15,10 @@ El MPM [event](https://httpd.apache.org/docs/2.4/mod/event.html) en versiones an
 
 En `/etc/apache2/mods-availables/mpm_event.conf` podemos configurar las opciones de configuración de este módulo:
 
-* `StartServers`: Número de procesos hijos que se crean al inciar el servidor, por defecto 2.
-* `MinSpareThreads`: Mínimo número de hilos esperando para responder, por defcto 25.
+* `StartServers`: Número de procesos hijos que se crean al iniciar el servidor, por defecto 2.
+* `MinSpareThreads`: Mínimo número de hilos esperando para responder, por defecto 25.
 * `MaxSpareThreads`: Máximo número de hilos esperando para responder, por defecto 75.
-* `ThreadLimit`: Límite superior del número de hhilos por proceso hijo que pueden especificarse, por defecto 64.
+* `ThreadLimit`: Límite superior del número de hilos por proceso hijo que pueden especificarse, por defecto 64.
 * `ThreadsPerChild`: Número de hilos de cada proceso, por defecto 25.
 * `MaxRequestWorkers`: Límite de peticiones simultaneas que se pueden responder, por defecto 150.
 * `MaxConnectionsPerChild`: Límite  en  el  número  de  peticiones  que  un  proceso  hijo  puede  atender  durante  su  vida,por defecto 0 (no se indica).
@@ -40,7 +40,7 @@ Para cambiar de MPM tenemos que desactivar el actual y activar el nuevo módulo:
 
 En `/etc/apache2/mods-availables/mpm_prefork.conf` podemos configurar las opciones de configuración de este módulo:
 
-* `StartServers`: Número de procesos hijos que se crean al inciar el servidor, por defecto 5.
+* `StartServers`: Número de procesos hijos que se crean al iniciar el servidor, por defecto 5.
 * `MinSpareServers`: Mínimo número de procesos esperando para responder, por defecto 5.
 * `MaxSpareServers`: Máximo número de procesos esperando para responder, por defecto 10.
 * `MaxRequestWorkers`:  Límite de peticiones simultaneas que se pueden responder, por defecto 150.
