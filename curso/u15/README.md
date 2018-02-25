@@ -13,6 +13,7 @@ Podemos controlar el acceso a cualquier recurso o conjunto de recurso, por ejemp
 * `Require valid-user`: El acceso es permitido a los usuarios válidos.
 * `Require ip 10 172.20 192.168.2`: El acceso es permitido si se hace desde el conjunto de direcciones especificadas.
 * `Require host dominio`: El acceso es permitido si se hace desde el dominio especificado.
+* `Require local`: El acceso es permitido desde `localhost`.
 
 En versiones anteriores de Apache se utilizaban otras directivas para controlar el acceso: [`Allow`](https://httpd.apache.org/docs/2.4/es/mod/mod_access_compat.html#allow), [`Deny`](https://httpd.apache.org/docs/2.4/es/mod/mod_access_compat.html#deny), y [`Order`](https://httpd.apache.org/docs/2.4/es/mod/mod_access_compat.html#order), están obsoletas y serán quitadas en futuras versiones.
 
