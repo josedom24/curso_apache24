@@ -23,6 +23,8 @@ Por ejemplo en la versión Apache 2.2 podemos encontrar esta configuración:
 		Allow from all
 	</Directory>
 
+El acceso esta denegado por defecto si no hay ninguna directiva `Allow` que permita el acceso.
+
 En Apache 2.4 quedaría:
 
 	<Directory "/var/www">
@@ -32,9 +34,11 @@ En Apache 2.4 quedaría:
 Otro ejemplo, por ejemplo para no permitir el acceso  a fichero `.htaccess`, podíamos encontrar en Apache 2.2:
 
 	<FilesMatch "^\.ht">
-   		Order allow,deny
+   		Order deny,allow
    		Deny from all
 	</FilesMatch>
+
+El acceso esta permitido por defecto a no se que se indique lo contrario, es decir se ejecute una directiva `deny`.
 
 En Apache 2.4 quedaría:
 
