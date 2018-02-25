@@ -1,10 +1,10 @@
 # Páginas de errores personalizadas
 
-Apache ofrece la posibilidad de que los webmasters puedan configurar las respuestas que muestra el servidor Apache cuando se producen algunos errores o problemas. Se puede hacer que el servidor siga uno de los siguientes comportamientos:
+Apache ofrece la posibilidad de que los administradores puedan configurar las respuestas que muestra el servidor Apache cuando se producen algunos errores o problemas. Se puede hacer que el servidor siga uno de los siguientes comportamientos:
 
 1. Desplegar un texto diferente, en lugar de los mensajes que aparecen por defecto.
 2. Redireccionar la petición a una URL local.
-3. redireccionar la petición a una URL externa.
+3. Redireccionar la petición a una URL externa.
 
 La directiva [`ErrorDocument`](https://httpd.apache.org/docs/2.4/es/mod/core.html#errordocument) me permite configurar la página de error personalizada para cada tipo de error (código de estados). Por ejemplo:
 
@@ -14,7 +14,7 @@ La directiva [`ErrorDocument`](https://httpd.apache.org/docs/2.4/es/mod/core.htm
 
 La directiva `ErrorDocument` la podemos usar en diferentes ámbitos de nuestra configuración, por ejemplo si la ponemos dentro de un Host Virtual la páginas de errores personalizadas se verán sólo en ese host virtual.
 
-Si queremos configurar las páginas de error personalizadas podemos hacerlo en un fichero de configuración: `/etc/apache2/conf-available/localized-error-pages.conf`. Este fichero de configuración está activo, podemos ver el enlace símbolico que existe en el directorio `/etc/apache2/conf-enabled`.
+Si queremos configurar las páginas de error personalizadas podemos hacerlo en un fichero de configuración: `/etc/apache2/conf-available/localized-error-pages.conf`. Este fichero de configuración está activo, podemos ver el enlace simbólico que existe en el directorio `/etc/apache2/conf-enabled`.
 
 ## Cambiando el idioma de las páginas de error personalizadas
 
@@ -60,3 +60,8 @@ En el directorio `/usr/share/apache2/error` nos encontramos fichero tipo mapa do
 Como se puede observar es necesario (directiva [`IfModule`](http://httpd.apache.org/docs/2.4/es/mod/core.html#ifmodule)) tener activo los módulos `negotiation`, `alias` (que están activos por defectos) y [`include`](http://httpd.apache.org/docs/current/mod/mod_include.html) que hay que activarlo:
 
 	# a2enmod include
+
+## Ejercicio
+
+En todos los host virtuales se debe redefinir los mensajes de error de objeto no encontrado y no permitido. Para ello se crearan dos ficheros html dentro del directorio error. REaliza los cambios necesarias para llevarlo a cabo.
+
