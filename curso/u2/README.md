@@ -20,8 +20,9 @@
 * La primera versión que aparece de Apache es la 0.6 en Abril de 1995.
 * Apache tiene amplia aceptación en la red: desde 1996, Apache, es el servidor HTTP más usado.
 * El servidor Apache es desarrollado y mantenido por una comunidad de usuarios bajo la supervisión de la *Apache Software Foundation* dentro del proyecto *HTTP Server* (httpd).
+* Actualmente usamos la versión 2.4, y está en desarrollo la 2.5.
 
-## Uso de servidores
+## Uso de servidores web
 
 Estadística de Netcraft de enero de 2018:
 
