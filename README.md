@@ -62,5 +62,5 @@
 ### Otros temas
 
 32. [Configuración de un proxy inverso](curso/u32)
-33. Analizadores de logs: awstats
+33. [Analizador de logs: awstats](curso/u33)
 
