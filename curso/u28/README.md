@@ -22,7 +22,7 @@ Este proceso nos puede ayudar a entender la circunstancia de que una empresa ten
  
 ## Creación del CSR
 
-CSR son las siglas de Certificate Signing Request o solicitud de firma de certificado. En primer lugar necesitamos generar una clave privada RSA de 4096 bits mediante la instrucción:
+CSR son las siglas de *0Certificate Signing Request* o solicitud de firma de certificado. En primer lugar necesitamos generar una clave privada RSA de 4096 bits mediante la instrucción:
 
 	  # openssl genrsa 4096 > /etc/ssl/private/ssl-cert.key
 
@@ -35,7 +35,7 @@ Utilizando la clave privada, generamos una CSR mediante la instrucción:
 
 	# openssl req -new -key /etc/ssl/private/ssl-cert.key -out /etc/ssl/private/midominio.csr
 
-El CSR contiene información que será incluida finalmente en el certificado SSL, como por ejemplo tu nombre o el de al empresa, la dirección, el país de residencia o el common name (dominio para el que es generado el SSL), además de estos datos también incluirá un clave pública que será incluida también en tu certificado.
+El CSR contiene información que será incluida finalmente en el certificado SSL, como por ejemplo tu nombre o el de al empresa, la dirección, el país de residencia o el *common name* (dominio para el que es generado el SSL), además de estos datos también incluirá un clave pública que será incluida también en tu certificado.
 
 
 Este fichero csr es el que enviamos a la CA a través del formulario web (opción **Server Certificates -> New**), que lo procesa y obtiene a partir de él un certificado X.509 compatible con nuestra clave privada, pero emitido por la CA. 
