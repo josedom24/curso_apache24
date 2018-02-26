@@ -104,8 +104,8 @@ En este caso en el fichero de configuración de uwsgi, `ejemplo.ini`, tendríamo
 
 Para la comunicación con uwsgi, apache necesita un módulo llamado `proxy_uwsgi`:
 
-    apt install libapache2-mod-proxy-uwsgi
-    a2enmod proxy_uwsgi
+    # apt install libapache2-mod-proxy-uwsgi
+    # a2enmod proxy_uwsgi
 
 Y creamos el fichero de configuración para el servidor virtual que servirá a aplicación de mezzanine.
 
