@@ -49,7 +49,7 @@
 
 24. [Módulos de Multiprocesamiento (MPM)](curso/u24)
 25. [Ejecución de script PHP](curso/u25)
-26. [Ejecución de script python](curso/u26) FALTA!!!
+26. [Ejecución de script python](curso/u26)
 
 ### Seguridad
 
