@@ -38,3 +38,28 @@ Y reinciamos el servidor.
 
 ## Configuración de awstats
 
+Ahora tenemos que crear un fichero de configuración de awstats para cada virtual host, para ello:
+
+	# cd /etc/awstats
+	# cp awstats.conf awstats.www.pagina1.org.conf
+
+Editamos el fichero (tenemos muchos parámetros) pero es suficiente indicar los siguientes:
+
+	LogFile="/var/log/apache2/access_pagina1.log"
+	SiteDomain="www.pagina1.org" 
+
+## Generamos los informes 
+
+Para generar los datos que se van a mostrar en el informe, ejecutamos:
+
+	/usr/lib/cgi-bin/awstats.pl -config=www.pagina1.org -update
+
+Es conveniente añadir una tarea programa para que se generen los informes cada cierto tiempo, por ejemplo cada hora:
+
+	# crontab -e
+
+	0 * * * * /usr/lib/cgi-bin/awstats.pl -config=www.pagina1.org -update
+
+Para visualizar el informe en el navegado accedemos a la siguiente URL:
+
+	http://www.pagina1.org/awstats/awstats.pl?config=www.pagina1.org
