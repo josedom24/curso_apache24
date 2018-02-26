@@ -25,7 +25,7 @@
 
 Estadística de Netcraft de enero de 2018:
 
-![apache](img/netcraft.png)
+![apache](img/uso.png)
 
 ## Ventajas de usar Apache2
 
