@@ -29,7 +29,7 @@ Finalmente activamos el sitio:
 
 ## Redirigiendo el trafico HTTP a HTTPS
 
-Podemos hacer una redirección para que cuando accedamos con HTTP se solicite el recurrso utilizando HTTPS. Para ello en el fichero de configuración del virtual host `/etc/apache2/sites-available/prueba.conf` podemos incluir un `redirect`:
+Podemos hacer una redirección para que cuando accedamos con HTTP se solicite el recurso utilizando HTTPS. Para ello en el fichero de configuración del virtual host `/etc/apache2/sites-available/prueba.conf` podemos incluir un `redirect`:
 
 	...
 	redirect premanent / https://prueba.josedomingo.org
