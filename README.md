@@ -2,7 +2,7 @@
 
 ## Unidades
 
-0. [Introducción al curso](curso/u0)
+0. [Introducción al curso](curso/u0/u0.pdf)
 
 ### Introducción a los servidores web
 
