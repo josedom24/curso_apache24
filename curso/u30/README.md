@@ -13,7 +13,7 @@ Por defecto el módulo trae una configuración recomendado, para activarla le ca
 	# cd /etc/modsecurity
 	# mv modsecurity.conf-recommended modsecurity.conf
 
-Cuando reiniciamos el servicio, se ha creado un nuevo fichero de log, donde modsecurity va a guardar información detallada de las peticiones y respuestas para posibles auditorias: `/var/log/apache2/modsec_audit.log`.
+Cuando reiniciamos el servicio, se ha creado un nuevo fichero de log, donde `mod_security` va a guardar información detallada de las peticiones y respuestas para posibles auditorias: `/var/log/apache2/modsec_audit.log`.
 
 Por defecto la configuración de modsecurity solo permite la detención de los ataques, pero no los evita. En el fichero de configuración `/etc/modsecurity/modsecurity.conf`, podemos encontrar:
 	
@@ -34,7 +34,7 @@ Por defecto tenemos un conjunto de reglas activadas, que llamamos CRS (*Core Rul
 
 Las reglas se encuentran en el directorio `/usr/share/modsecurity-crs/rules`.
 
-## Demostración: vitar un ataque SQL Injection
+## Demostración: evitar un ataque SQL Injection
 
 Tenemos preparado un servidor LAMP, donde hemos creado una tabla con usuarios y contraseñas:
 
@@ -86,6 +86,6 @@ Si lo probamos y comprobamos el fichero de log de auditoria podemos encontrar qu
 
 Como vemos la regla que detecta el *SQL injection* se encuentra definida en el fichero `/usr/share/modsecurity-crs/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf`.
 
-Para terminar podemos evitar que se produzca el ataque habilitando el módulo en el fichero de configuración `/etc/modsecurity/modsecurity.conf`
+Para terminar podemos evitar que se produzca el ataque habilitando el módulo en el fichero de configuración `/etc/modsecurity/modsecurity.conf`:
 
 	SecRuleEngine On
