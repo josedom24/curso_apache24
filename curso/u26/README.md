@@ -4,7 +4,7 @@
 
 Instalamos el módulo de apache2 que nos permite ejecutar código python: `libapache2-mod-wsgi`.
 
-Veamos un ejemplo de configuración para una aplicación django. Suponemos que el fichero wsgi se encuentra en el directorio: ``/var/www/html/mysite/mysite/wsgi.py`` y configuramos apache2 de la siguiente manera::
+Veamos un ejemplo de configuración para una aplicación django. Suponemos que el fichero wsgi se encuentra en el directorio: `/var/www/html/mysite/mysite/wsgi.py` y configuramos apache2 de la siguiente manera:
 
     <VirtualHost *>
         ServerName www.example.com
@@ -59,7 +59,7 @@ Y para ejecutar el servidor, simplemente:
 
 De esta forma puedo tener varios ficheros de configuración del servidor uwsgi para las distintas aplicaciones python que sirva el servidor.
 
-Podemos tener los ficheros de configuración en `/etc/uwsgi/apps-available` y para habiliatar podemos crear un enlace simbólico a estos ficheros en `/etc/uwsgi/apps-enabled`.
+Podemos tener los ficheros de configuración en `/etc/uwsgi/apps-available` y para habilitar podemos crear un enlace simbólico a estos ficheros en `/etc/uwsgi/apps-enabled`.
 
 En el ejemplo anterior hemos usado la opción `http` para indicar que se va a devolver una respuesta HTTP, podemos usar varias opciones:
 
@@ -71,10 +71,48 @@ Existen muchas más opciones que puedes usar: [http://uwsgi-docs.readthedocs.io/
 
 ## Apache con uwsgi
 
+### Configuración usando HTTP
+
 Necesitamos instalar el módulo de proxy:
     
     # a2enmod proxy proxy_http
 
-libapache2-mod-proxy-uwsgi
+La configuración del virtual host podría quedar:
 
-FALTA!!!!!!!!!!!!!
+    <VirtualHost *:80> 
+        ServerAdmin webmaster@localhost
+        Alias /static /home/debian/myapp/static
+        <Directory /home/debian/myapp static>  
+            Require all granted
+            Options FollowSymlinks
+        </Directory> 
+        ProxyPass /static !
+        ProxyPass / http://localhost:8080/
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+
+Como vemos el contenido estático es servido por Apache y el procesamiento de python se pasa al servidor uwsgi.
+
+### Configuración usando uWSGI
+
+En este caso en el fichero de configuración de uwsgi, `ejemplo.ini`, tendríamos que cambiar el modo de funcionamiento:
+
+    ...
+    socket = 127.0.0.1:3032
+    ...
+
+Para la comunicación con uwsgi, apache necesita un módulo llamado `proxy_uwsgi`:
+
+    apt install libapache2-mod-proxy-uwsgi
+    a2enmod proxy_uwsgi
+
+Y creamos el fichero de configuración para el servidor virtual que servirá a aplicación de mezzanine.
+
+    <VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ProxyPass / uwsgi://127.0.0.1:3032/
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+
