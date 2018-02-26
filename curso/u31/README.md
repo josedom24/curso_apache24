@@ -29,13 +29,13 @@ Esto es necesario por dos razones, para reducir la ocupación de recurso, aument
 
 	# apache2ctl -M
 
-Por ejemplo, por defecto tenemos activo el módulo `status` que nos permite ver el estado del servidor si accedermos a la URL `/server-status` (por defecto sólo desde localhost). este m´odulo lo podríamos desactivar:
+Por ejemplo, por defecto tenemos activo el módulo `status` que nos permite ver el estado del servidor si accedemos a la URL `/server-status` (por defecto sólo desde localhost). este m´odulo lo podríamos desactivar:
 
 	# a2dismod status
 
 ## Deshabilitar enlaces simbólicos 
 
- Por defecto de permite seguir los enlaces símbolicos dentro de nuestros Virtual Host. Esta funcionalidad puede traer consecuencias no deseables si por una mal configuración se filtran contenidos de ficheros que no deberían ser visibles para els ervidor web. Por lo tanto en el fichero `/etc/apache2/apache2.conf` deberíamos tener:
+ Por defecto de permite seguir los enlaces simbólicos dentro de nuestros Virtual Host. Esta funcionalidad puede traer consecuencias no deseables si por una mal configuración se filtran contenidos de ficheros que no deberían ser visibles para el servidor web. Por lo tanto en el fichero `/etc/apache2/apache2.conf` deberíamos tener:
 
  	<Directory /var/www/>
         # Options Indexes FollowSymLinks 
