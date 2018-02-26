@@ -7,7 +7,7 @@
 ### Introducción a los servidores web
 
 1. [Protocolo HTTP](curso/u1) 
-2. Introducción al servidor web Apache 2.4
+2. [Introducción al servidor web Apache 2.4](curso/u2)
 3. [Instalación del servidor web Apache 2.4](curso/u3)
 4. [Estructura de los ficheros de configuración](curso/u4)
 5. [Empezamos estudiando algunas directivas](curso/u5)
