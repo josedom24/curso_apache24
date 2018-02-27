@@ -30,8 +30,8 @@ Para conseguir estos dos sitios virtuales debes seguir los siguientes pasos:
 
 4. Creamos los directorios y los ficheros `index.html` necesarios en `/var/www` y reiniciamos el servicio. Recuerda que los ficheros servidos deben ser propiedad del usuario y grupo que usa Apache, es decir usuario `www-data` y grupo `www-data`.
 
-	# chwown -R www-data:www-data /var/www/pagina1
-	# chwown -R www-data:www-data /var/www/pagina2
+		# chown -R www-data:www-data /var/www/pagina1
+		# chown -R www-data:www-data /var/www/pagina2
 
 5. Para terminar lo único que tendremos que hacer es cambiar el fichero hosts en los clientes y poner dos nuevas líneas donde se haga la conversión entre los dos nombre de dominio y la dirección IP del servidor.
 
