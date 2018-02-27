@@ -37,3 +37,7 @@ Para gestionar el servicio:
 ## Instalación en Windows
 
 * [Using Apache HTTP Server on Microsoft Windows](https://httpd.apache.org/docs/2.4/platform/windows.html)
+
+## Ejercicio
+
+Vamos a instalar el servidor web Apache2 en un servidor remoto y en un servidor local. Los nombres del servidor remoto están registrado en un DNS, sin embargo los nombres del servidor local habrá que gestionarlo con resolución estática.
