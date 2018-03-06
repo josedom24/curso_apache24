@@ -46,4 +46,4 @@ Esta instrucción crea un enlace simbólico en el directorio `/etc/apache2/conf-
 
 ## Variables de entorno de Apache
 
-El servidor HTTP Apache HTTP ofrece un mecanismo para almacenar información en variables especiales que se llaman variables de entorno. Esta información puede ser usada para controlar diversas operaciones como por ejemplo, almacenar datos en ficheros de registro (`log files`) o controlar el acceso al servidor. Podemos encontrar estas variables definidas en el fichero `/etc/apachee2/envvars`.
+El servidor HTTP Apache HTTP ofrece un mecanismo para almacenar información en variables especiales que se llaman variables de entorno. Esta información puede ser usada para controlar diversas operaciones como por ejemplo, almacenar datos en ficheros de registro (`log files`) o controlar el acceso al servidor. Podemos encontrar estas variables definidas en el fichero `/etc/apache2/envvars`.
