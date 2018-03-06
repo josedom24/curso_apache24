@@ -35,6 +35,9 @@ Para conseguir estos dos sitios virtuales debes seguir los siguientes pasos:
 
 5. Para terminar lo único que tendremos que hacer es cambiar el fichero hosts en los clientes y poner dos nuevas líneas donde se haga la conversión entre los dos nombre de dominio y la dirección IP del servidor.
 
+## Ejemplo
+
+Vamos a crear dos virtual host en nuestro servidor remoto. Vamos a probar que pasa si accedemos al servidor con la IP. Es interesante dejar el virtual host por defecto aunque no muestre ninguna información.
 
 ## Ejercicio
 
