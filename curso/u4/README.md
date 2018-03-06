@@ -18,7 +18,7 @@ El fichero principal de configuración de Apache2 es `/etc/apache2/apache2.conf`
 
 ## Opciones de configuración para los servidores virtuales
 
-Por defecto se indican las opciones de configuración del directorio `/var/www` y de todos sus subdirectorios, por lo tanto los `DocumentRoot` de los virtual host que se crean deben ser subdirectorios del este directorio:
+Por defecto se indican las opciones de configuración del directorio `/var/www` y de todos sus subdirectorios, por lo tanto los `DocumentRoot` de los virtual host que se crean deben ser subdirectorios del este directorio, por lo tanto encontramos en el fichero `/etc/apache2/apache2.conf` lo siguiente:
 
 	<Directory /var/www/>
 	    Options Indexes FollowSymLinks
@@ -36,7 +36,7 @@ Podemos indicar como directorio raíz de nuestros virtual host otro directorio (
 
 ## Añadir nueva configuración
 
-Si tenemos configuración adicional para nuestro servidor podemos guardarla en un fichero (pro ejemplo `prueba.conf`) dentro del directorio `/etc/apache2/conf-available`. Para añadir dicho fichero de configuración a la configuración general del servidor usamos la instrucción:
+Si tenemos configuración adicional para nuestro servidor podemos guardarla en un fichero (por ejemplo `prueba.conf`) dentro del directorio `/etc/apache2/conf-available`. Para añadir dicho fichero de configuración a la configuración general del servidor usamos la instrucción:
 
 	# a2enconf prueba
 
