@@ -6,7 +6,7 @@ Cuando indicamos la configuración de un servidor servidor por apache, por ejemp
 * `FollowSymLinks`: Se pueden seguir los enlaces simbólicos. 
 * `Indexes`: Cuando accedemos al directorio y no se encuentra un fichero por defecto (indicado en la directiva `DirectoryIndex` del módulo `mod_dir`), por ejemplo el `index.html`, se muestra la lista de ficheros (esto lo realiza el módulo `mod_autoindex`).
 * `MultiViews`: Permite la [negociación de contenido](http://httpd.apache.org/docs/2.4/content-negotiation.html), mediante el módulo `mod_negotiation`.
-* `SymLinksOwnerMatch`: Se pueden seguir enlaces simbólicos, sólo cuando el fichero destino es del mismo propietario que el enlace simbólico.
+* `SymLinksIfOwnerMatch`: Se pueden seguir enlaces simbólicos, sólo cuando el fichero destino es del mismo propietario que el enlace simbólico.
 * `ExecCGI`: Permite ejecutar script CGI usando el módulo `mod_cgi`.
 
 Podemos activar o desactivar una opción en referencia con la configuración de un directorio padre mediante el signo `+` o `-`.
