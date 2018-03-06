@@ -13,7 +13,7 @@ Lo realizamos sobre apache1.openwebinars.net:
 3. accedemos y vemos el índice de directorios
 4. Quitamos la opción de índice
 		
-		<Directory /var/www/u8/apache1>
+		<Directory /var/www/apache1>
     		Options -Indexes
 5. Y volvemos a comprobar
 
@@ -27,7 +27,7 @@ Lo realizamos sobre apache1.openwebinars.net:
 
 9. Cambiamos los propietarios del enlace símbolico
 
-		/var/www/html/u8/apache1# chown www-data:www-data *
+		/var/www/html/apache1# chown www-data:www-data *
 
 10. y ya no funciona
 
