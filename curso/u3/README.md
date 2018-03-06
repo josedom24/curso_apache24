@@ -23,17 +23,6 @@ Evidentemente el servidor está gestionado por `Systemd`, por lo tanto para cont
 
 	systemctl [start|stop|restart|reload|status] apache2.service
 
-## Instalación en CentOS
-
-En sistemas GNU/Linux CentOS/Red Hat tendríamos que ejecutar como administrador:
-
-	yum install httpd
-	systemctl start httpd
-
-Para gestionar el servicio:
-
-	systemctl [start|stop|restart|reload|status] httpd.service
-
 ## Instalación en Windows
 
 * [Using Apache HTTP Server on Microsoft Windows](https://httpd.apache.org/docs/2.4/platform/windows.html)
