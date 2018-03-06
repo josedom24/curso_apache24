@@ -31,16 +31,19 @@ Ya tan sólo tenemos que configurar el idioma en el navegado y acceder a la URL 
 
 Un [`handler`](https://httpd.apache.org/docs/2.4/es/handler.html) es una representación interna de Apache de una acción que se va a ejecutar cuando hay una llamada a un fichero. Generalmente, los ficheros tienen *handlers* implícitos, basados en el tipo de fichero de que se trata. Normalmente, todos los ficheros son simplemente servidos por el servidor, pero algunos tipos de ficheros se tratan de forma diferente.
 
-Nosotros vamos a tener un fichero especial que denominamos *type-map* con extensión `var` al que hay que vamos a crear un *handler* para manejarlo de una manera especial para el negociado de contenidos.
+Nosotros vamos a tener un fichero especial que denominamos *type-map* con extensión `var` al que le vamos a crear un *handler* para manejarlo de una manera especial para el negociado de contenidos.
 
 Los ficheros de tipo mapa tienen una entrada para cada variante disponible. Estas entradas consisten en líneas de cabecera contiguas en formato HTTP. Las entradas para diferentes variantes se separan con líneas en blanco. Las líneas en blanco no están permitidas dentro de una entrada. Existe el acuerdo de empezar un fichero mapa con una entrada para la entidad combinada como un todo.
 
 Por lo tanto la configuración del directorio sería:
 
 	<Directory /var/www/html/internacional>
+		DirectoryIndex index.var
 		AddHandler type-map .var
 	</Directory>
 	...
+
+Con la directiva `DirectoryIndex` indicamos que el fichero por defecto será `index.var`.
 
 En el directorio `/var/www/html/internacional`, ademas de tener los ficheros: `index.html.en` y `index.html.es`, tendremos un fichero `index.var` con el siguiente contenido:
 
