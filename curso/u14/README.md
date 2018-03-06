@@ -63,5 +63,5 @@ Como se puede observar es necesario (directiva [`IfModule`](http://httpd.apache.
 
 ## Ejercicio
 
-En todos los host virtuales se debe redefinir los mensajes de error de objeto no encontrado y no permitido. Para ello se crearan dos ficheros html dentro del directorio error. REaliza los cambios necesarias para llevarlo a cabo.
+En todos los host virtuales se debe redefinir los mensajes de error de objeto no encontrado y no permitido. Para ello se crearan dos ficheros html dentro del directorio error. Realiza los cambios necesarias para llevarlo a cabo.
 
