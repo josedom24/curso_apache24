@@ -46,38 +46,9 @@ Tanto la petición como las respuestas tienen una serie de metainformación llam
 * `Location`: usado para especificar una nueva ubicación en casos de redirecciones.
 * `Set-Cookie`: sirve para crear cookies. Las famosos cookies viajan entre el servidor y el navegador a través de estas cabeceras HTTP.
 
-## Cookies
+## Otras características
 
-Las cookie son información que el navegador guarda en memoria o en el disco duro dentro de ficheros de texto, a solicitud del servidor. Incluyen datos generados por el servidor, o datos introducidos en un formulario por el usuario, enviados al servidor y reenviados por
-éste al cliente.
-
-HTTP es un protocolo sin estados (no almacena el estado de la sesión entre peticiones sucesivas), las cookies pueden usarse para asociar estado. Proporcionan una manera de conservar cierta información entre peticiones del cliente.
-
-Ejemplos de uso:
-
-* Guarda información de la sesión.
-* Comercio electrónico.
-* Carrito de la compra.
-* Personalización de páginas
-* Idiomas
-* Seguimiento de las visitas a un Web
-* Carteles publicitarios
-* Almacenamiento del login y password
-
-## Sesiones
-
-HTTP es un protocolo sin manejo de estados. Las sesiones son fundamentales en las aplicaciones
-Web. Permiten:
-
-* Definir varios estados distintos en la aplicación.
-* Colocar las solicitudes y respuestas dentro de un contexto más amplio.
-* Los clientes y servidores intercambian información sobre el estado de la aplicación.
-
-El servidor almacenará la información necesaria para llevar el seguimiento de la sesión.
-
-* Identificador de la sesión.
-* Identificador del usuario en sesión.
-* Tiempo de expiración de la sesión.
-* Variables asociadas a la sesión.
-
-El mecanismo más usual para permitir las sesiones es por medio de las cookie, guardando el identificador de la sesión.
+* **Cookies**: Las cookies son información que el navegador guarda en memoria o en el disco duro dentro de ficheros de texto, a solicitud del servidor.
+* **Sesiones**: HTTP es un protocolo sin manejo de estados. Las sesiones nos permiten definir estados, para ello el servidor almacenará la información necesaria para llevar el seguimiento de la sesión.
+* **Autentificación**: A veces, debido a cuestiones de personalización o a políticas de restricción, las aplicaciones Web deben conocer y verificar la identidad del usuario, mediante nombre de usuario y contraseña.
+* **Conexiones persistentes**: Permiten que varias peticiones y respuestas sean transferidas usando la misma conexión TCP.
