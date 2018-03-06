@@ -37,14 +37,15 @@ Cuando el servidor devuelve una respuesta se indica un código de estado:
 
 Tanto la petición como las respuestas tienen una serie de metainformación llamadas cabeceras, podemos indicar las más importantes:
 
-	
+* `Host`: Nombre y puerto del servidor al que se dirige la petición.
+* `User-Agent`: Identificación del programa del cliente.
 * `Server`: indica el tipo de servidor HTTP empleado.
-* `Age`: indica el tiempo que ha estado el objeto servido almacenado en un proxy cache (en segundos)
-* `Cache-control`: lo usa el servidor para decirle al navegador que objetos cachear, durante cuanto tiempo, etc..
-* `Content-Encoding`: se indica el tipo de codificación empleado en la respuesta
+* `Cache-control`: lo usa el servidor para decirle al navegador que objetos cachear, durante cuanto tiempo, etc..,
+* `Content-type`: Tipo MIME del recurso.
+* `Content-Encoding`: se indica el tipo de codificación empleado en la respuesta.
 * `Expires`: indica una fecha y hora a partir del cual la respuesta HTTP se considera obsoleta. Usado para gestionar caché.
 * `Location`: usado para especificar una nueva ubicación en casos de redirecciones.
-* `Set-Cookie`: sirve para crear cookies. Las famosos cookies viajan entre el servidor y el navegador a través de estas cabeceras HTTP.
+* `Set-Cookie`: Solicita la creación de una cookie en el cliente.
 
 ## Otras características
 
@@ -52,3 +53,9 @@ Tanto la petición como las respuestas tienen una serie de metainformación llam
 * **Sesiones**: HTTP es un protocolo sin manejo de estados. Las sesiones nos permiten definir estados, para ello el servidor almacenará la información necesaria para llevar el seguimiento de la sesión.
 * **Autentificación**: A veces, debido a cuestiones de personalización o a políticas de restricción, las aplicaciones Web deben conocer y verificar la identidad del usuario, mediante nombre de usuario y contraseña.
 * **Conexiones persistentes**: Permiten que varias peticiones y respuestas sean transferidas usando la misma conexión TCP.
+
+## Ejemplo de peticiones
+
+	GET -USE http://playerone.josedomingo.org/index.php
+	GET -USE http://playerone.josedomingo.org/index.php?variable=100
+	POST -aUSE http://playerone.josedomingo.org/index.php
