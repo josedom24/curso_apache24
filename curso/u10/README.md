@@ -27,6 +27,6 @@ A continuación podría cambiar las opción del virtual host `pagina1`, incluyen
 
 ## Ejercicios
 
-* Crea un enlace directo dentro de `/home/usuario/` y comprueba si es posible seguirlo. Cambia las opciones del directorio para que no siga los enlaces simbólicos.
+* Crea un enlace símbolico al directorio  `/home/usuario/` y comprueba si es posible seguirlo. Cambia las opciones del directorio para que no siga los enlaces simbólicos.
 * Deshabilita la opción de que se listen los archivos existentes en la carpeta cuando no existe un fichero definido en la directiva [`DirectoryIndex`](http://httpd.apache.org/docs/2.4/mod/mod_dir.html#directoryindex).
 
