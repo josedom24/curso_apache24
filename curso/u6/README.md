@@ -26,5 +26,5 @@ Por defecto los errores de nuestro sitio virtual se guardan en `/var/log/apache2
 
 ## Ejercicio
 
-Cambia el contenido del fichero `index.html` del directorio `/var/www/html` y comprueba, accediendo por el navegador, los cambios realizados.
+Cambia el contenido del fichero `index.html` (o crea un nuevo fichero `html`) del directorio `/var/www/html` y comprueba, accediendo por el navegador, los cambios realizados.
 
