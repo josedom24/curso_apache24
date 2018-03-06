@@ -13,9 +13,9 @@ Por defecto los Virtual Host que hemos definido responden desde cualquier IP en 
 	<VirtualHost *:80>
 	...
 
-## Ejemplos: Virtual Host basado en IP
+## Ejemplo: Virtual Host basado en IP
 
-En este caso nuestra máquina debe tener configurado varias IP, por cada IP se va servir un virtual host.
+En este caso nuestra máquina debe tener configurado varias IP (lo vamos a probar en nuestro servidor local que tiene configurado dos interfaces de red), por cada IP se va servir un virtual host.
 
 	<VirtualHost 172.20.30.40:80>
 	    ServerAdmin webmaster@www1.example.com
