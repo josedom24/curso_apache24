@@ -8,6 +8,10 @@ Y por defecto este sitio virtual está habilitado, por lo que podemos comprobar 
 
     lrwxrwxrwx 1 root root   35 Oct  3 15:24 000-default.conf -> ../sites-available/000-default.conf
 
+Una de las directivas más importantes que nos encontramos en el fichero de configuración es [`DocumentRoot`](https://httpd.apache.org/docs/2.4/mod/core.html#documentroot) donde se indica el directorio donde van a estar guardados los ficheros de nuestro sitio web, los ficheros que se van a servir. En la configuración del virtual host por defecto el directorio es:
+
+	/var/www/html
+
 En el fichero de configuración general `/etc/apache2/apache2.conf` nos encontramos las opciones de configuración del directorio padre del indicado en la directiva `DocumentRoot` (suponemos que todos los host virtuales van a estar guardados en subdirectorios de este directorio):
 
 	...
