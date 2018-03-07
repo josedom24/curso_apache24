@@ -21,7 +21,7 @@
 
 ### Mapeo de URL
 
-10. [Opciones de directorios y ficheros](curso/u10)
+10. [Opciones de directorios](curso/u10)
 11. [Trabajando con alias](curso/u11)
 12. [Negociación de contenidos](curso/u12)
 13. [Redirecciones](curso/u13)

@@ -1,4 +1,4 @@
-# Ejemplos unidad 10: Opciones de directorios y ficheros
+# Ejemplos unidad 10: Opciones de directorios
 
 Lo realizamos sobre apache1.openwebinars.net:
 
