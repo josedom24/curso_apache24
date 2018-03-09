@@ -71,7 +71,7 @@ En Apache 2.4 tendremos:
 
 	Require host example.org
 
-## Demostración 
+## Ejercicio 
 
 Permitir el acceso a `www.pagina1.org\intranet` sólo desde el cliente conectado a la red interna, y el acceso a `www.pagina1.org\internet` desde la red externa.
 
