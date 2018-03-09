@@ -32,11 +32,19 @@ Para crear el fichero de contraseñas con la introducción del primer usuario te
 
 Para denegar el acceso a algún usuario basta con que borremos la línea correspondiente al mismo. No es necesario que le pidamos a Apache que vuelva a leer su configuración cada vez que hagamos algún cambio en este fichero de contraseñas.
 
+Si lo que se desea es permitir a un grupo de usuarios, necesitarás crear un archivo de grupo que asocie los nombres de grupos con el de usuario para permitirles el acceso. El formato de este fichero es bastante sencillo, y puedes crearlo con tu editor de texto favorito. El contenido del fichero se parecerá a:
+
+    NombreGrupo: usuario1 usuario2 usuario3
+
+La directiva que tendríamos que utiliazar para inidicar el fichero de grupo sería [`AuthGroupFile`](https://httpd.apache.org/docs/2.4/es/mod/mod_authz_groupfile.html#authgroupfile). Y para permitir el acceso a los grupos utilizaríamos:
+
+    Require group NombreGrupo
+
 La principal ventaja de este método es su sencillez. Sus inconvenientes: lo incómodo de delegar la generación de nuevos usuarios en alguien que no sea un administrador de sistemas o de hacer un front-end para que sea el propio usuario quien cambie su contraseña. Y, por supuesto, que dichas contraseñas viajan en claro a través de la red. Si queremos evitar esto último podemos configurtar Apache2 con SSL.
 
 ## Demostración
 
-Autentificación básica al directorio `www.pagina1.org\secreto`.
+Autentificación básica al directorio `www.pagina1.org\privado`.
 
 ## Ejercicio
 
