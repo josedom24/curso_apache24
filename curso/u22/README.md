@@ -6,6 +6,8 @@
 
 Para crear un directorio en nuestro servidor Web que pueda ser accesible por medio de un cliente WebDAV debemos activar los módulos `dav` y `dav_fs`.
 
+    # a2enmod dav dav_fs
+
 Lo primero es indicar el nombre de la base de datos de lock que se utilizará, mediante la directiva `DAVLockDB`. Es importante tener especial cuidado con esta directiva, ya que es frecuente fuente de errores.
 
     DavLockDB /tmp/DAVLockDB
