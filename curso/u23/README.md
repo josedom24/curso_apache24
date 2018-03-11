@@ -12,17 +12,26 @@ Es mucho mejor escribirlas como:
 
 ## Ejemplo 1: Cambiar la extensión de los ficheros
 
-Si queremos usar la extensión `do` en vez de `html` podríamos usar este `.htaccess`:
+Si tenemos el siguiente fichero php [operacion.php](https://raw.githubusercontent.com/josedom24/curso_apache24/master/curso/u23/fich/operacion.php), podríamos usarlo de la siguiente manera:
+
+        http://www.pagina1.org/operacion.php?op=suma&op1=6&op2=8
+
+Y si queremos reescribir la URL y que usemos en vez de php html, de esta forma:
+
+        http://www.pagina1.org/operacion.html?op=suma&op1=6&op2=8
+
+Para ello activamos el `mod_rewite`, y escribimos un `.htaccess` de la siguiente manera:
 
         Options FollowSymLinks
         RewriteEngine On
-        RewriteRule ^(.+).do$ $1.html [nc]
+        RewriteBase /
+        RewriteRule ^(.+).html$ $1.php [nc]
 
 El flag `[nc]` lo ponemos para no distinguir entre mayúsculas y minúsculas.
 
 Esto puede ser penalizado por los motores de búsqueda ya que podemos acceder a la misma página con dos URL distintas, para solucionar esto podemos hacer una redirección:
 
-        RewriteRule ^(.+).do$ $1.html [r,nc]
+        RewriteRule ^(.+).html$ $1.php [r,nc]
 
 ## Ejemplo 2: Crear URL amigables
 

@@ -4,6 +4,8 @@ Lo vamos a hacer en nuestro servidor interno:
 
 Creamos un fichero `.htaccess`
 
+0. Hay que cambiar el `AllowOverride` de `/etc/apache2/apache2.conf`
+
 1. Deshabilitar la opción de listar los ficheros en ese directorio.
 
 		Options -Indexes
