@@ -4,7 +4,7 @@ Lo vamos a hacer en `apache2.openwebinars.net`:
 
 1. Configuración:
 
-		<Directory "/var/www/apache2/privado">
+		<Directory /var/www/html/interna>
 			AuthUserFile "/etc/apache2/claves/digest.txt"
 			AuthName "dominio"
 			AuthType Digest
