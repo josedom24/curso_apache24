@@ -28,7 +28,7 @@ Al igual que ocurría con `htpasswd`, la opción `-c` (create) sólo debemos de 
 
 ## Demostración
 
-Autentificación digest al directorio `www.pagina2.org\secreto`.
+Autentificación digest al directorio `www.pagina2.org\privado`.
 
 ## Ejercicio
 
