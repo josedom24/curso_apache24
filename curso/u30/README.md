@@ -28,7 +28,7 @@ Podemos modificar otras directivas:
 
 ## Activando las reglas de detección
 
-Por defecto tenemos un conjunto de reglas activadas, que llamamos CRS (*Core Rules Set*). Si nos fijamos en el fichero de configuración del módulo `/etc/apache2/mods-available/security.conf`, ademas de indicar el directorio donde se va a guardar información (directiva `SecDataDir`), incluye el fichero donde están definida las CRS:
+Por defecto tenemos un conjunto de reglas activadas, que llamamos CRS (*Core Rules Set*). Si nos fijamos en el fichero de configuración del módulo `/etc/apache2/mods-available/security2.conf`, ademas de indicar el directorio donde se va a guardar información (directiva `SecDataDir`), incluye el fichero donde están definida las CRS:
 
 	IncludeOptional /usr/share/modsecurity-crs/owasp-crs.load
 
