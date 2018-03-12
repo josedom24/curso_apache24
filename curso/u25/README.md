@@ -14,20 +14,23 @@ Cuando hacemos la instalación se desactiva el MPM `event` y se activa el `prefo
 	apache2_switch_mpm Switch to prefork
 	...
 
-Si queremos desactivar el módulo PHP de apache2:
+Si vemos el contenido del fichero de configuración del módulo php de apache2, `/etc/apache2/mods-available/php7.0.conf`, nos encontramos las siguientes líneas:
 
-	apt remove libapache2-mod-php7.0
+	<FilesMatch ".+\.ph(p[3457]?|t|tml)$">
+	    SetHandler application/x-httpd-php
+	</FilesMatch>
+	...
 
-Y activamos el módulo `event`:
+Donde se crea un nuevo manejador, que hace que los ficheros cuya extensión es `php` sean gestionados por el módulo que interpreta el código php.
 
-	a2dismod mpm_prefork
-	a2enmod mpm_event
 
-La configuración de php está dividida según desde se use:
+### Configuración de php
+
+La configuración de php está dividida en distintos directorios para las distintas formas de ejecutar el código php:
 
 * `/etc/php/7.0/cli`: Configuración de php para `php7.0-cli`, cuando se utiliza php desde la línea de comandos.
 * `/etc/php/7.0/apache2`: Configuración de php para apache2 cuando utiliza el módulo.
-* `/etc/php/7.0/fpm`: Configuración de php para php-fpm
+* `/etc/php/7.0/fpm`: Configuración de php para php-fpm.
 * `/etc/php/7.0/mods-available`: Módulos disponibles de php que puedes estar configurados en cualquiera de los escenarios anteriores.
 
 Si nos fijamos en la configuración de php para apache2:
@@ -79,7 +82,7 @@ Por último reiniciamos el servicio:
 
 ### Configuración de Apache2 con php-fpm
 
-Necesito activar los siguientes módulos_
+Necesito activar los siguientes módulos:
 
 	a2enmod proxy proxy_fcgi
 
