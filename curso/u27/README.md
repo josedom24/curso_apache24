@@ -18,6 +18,6 @@ El funcionamiento de forma esquemática de HTTPS la podríamos resumir en el sig
 
 ![https](img/https.png)
 
-En la siguiente unidad vamos a utilizar la CA Let's Encrypt para conseguir un certificado X.509 para nuestro servidor. Let's Encrypt​ es una autoridad de certificación que se puso en marcha el 12 de abril de 2016 y que proporciona certificados X.509 gratuitos para el cifrado de Seguridad de nivel de transporte (TLS).
+En la siguiente unidad vamos a utilizar la CA CaCert para conseguir un certificado X.509 para nuestro servidor.
 
 Hay otras CA que nos proporcionan certificados y que no son gratuitos. Estas CA tendrán métodos más robustos  para validar el servidor, la persona u organismo que solicita el certificado. Y por tanto pueden dar un nivel más elevado de confianza.
