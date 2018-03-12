@@ -43,6 +43,9 @@ Tenemos preparado un servidor LAMP, donde hemos creado una tabla con usuarios y 
     mysql> use sample;
     mysql> create table users(username VARCHAR(100),password VARCHAR(100));
     mysql> insert into users values('pepe','password');
+    mysql> create user 'user'@'localhost';
+	mysql> grant all privileges on sample.* to 'user'@'localhost' identified by 'password';
+	mysql> flush priveleges;
 
 Y una aplicación PHP (`login.php`) que realiza la operación de 'login':
 
@@ -53,7 +56,7 @@ Y una aplicación PHP (`login.php`) que realiza la operación de 'login':
 	    {
 	        $username = $_POST['username'];
 	        $password = $_POST['password'];
-	        $con = mysqli_connect('localhost','root','your_mysql_password','sample');
+	        $con = mysqli_connect('localhost','user','password','sample');
 	        $result = mysqli_query($con, "SELECT * FROM `users` WHERE username='$username' AND password='$password'");
 	        if(mysqli_num_rows($result) == 0)
 	            echo 'Invalid username or password';
