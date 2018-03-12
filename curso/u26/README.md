@@ -2,7 +2,7 @@
 
 ## Apache2 y módulo wsgi
 
-Instalamos el módulo de apache2 que nos permite ejecutar código python: `libapache2-mod-wsgi`.
+Instalamos el módulo de apache2 que nos permite ejecutar código python: `libapache2-mod-wsgi` si vamos a trabajar con python2 o `libapache2-mod-wsgi-py3` si trabajamos con python3.
 
 Veamos un ejemplo de configuración para una aplicación django. Suponemos que el fichero wsgi se encuentra en el directorio: `/var/www/html/mysite/mysite/wsgi.py` y configuramos apache2 de la siguiente manera:
 
@@ -19,12 +19,6 @@ Veamos un ejemplo de configuración para una aplicación django. Suponemos que e
         </Directory>
     </VirtualHost>
 
-Si hemos usado un entorno virtual creado en el directorio `/home/debian/python`, la siguiente línea de configuración quedaría de la siguiente manera:
-
-    ...
-    WSGIDaemonProcess mysite user=www-data group=www-data processes=1 threads=5 python-path=/var/www/html/mysite:/home/debian/python/lib/python2.7/site-packages
-    ...
-
 ## Usando servidores wsgi
 
 Otra forma de ejecutar código python es usar servidores de aplicación wsgi. Tenemos a nuestra disposición varios servidores: [A Comparison of Web Servers for Python Based Web Applications](https://www.digitalocean.com/community/tutorials/a-comparison-of-web-servers-for-python-based-web-applications). Realmente usamos apache2 como proxy inverso que envía la petición python al servidor WSGI que estemos utilizando.
@@ -34,7 +28,7 @@ Otra forma de ejecutar código python es usar servidores de aplicación wsgi. Te
 Para instalarlo en Debian 9 Stretch:
 
     apt install uwsgi
-    apt install uwsgi-plugin-python
+    apt install uwsgi-plugin-python3
 
 También lo podemos instalar con `pip` en un entorno virtual.  
 
@@ -47,11 +41,12 @@ Hemos creado una aplicación django en el directorio: `/home/debian/myapp` para 
 Otra alternativa es crear un fichero `.ini` de configuración, `ejemplo.ini` de la siguiente manera:
 
     [uwsgi]
-    http = :8080
+    http-socket = :8080
     chdir = /home/debian/myapp 
-    wsgi-file = myapp/wsgi.py
+    wsgi-file = /home/debian/myapp/myapp/wsgi.py
     processes = 4
     threads = 2
+    plugin = python3
 
 Y para ejecutar el servidor, simplemente:
 
@@ -81,12 +76,6 @@ La configuración del virtual host podría quedar:
 
     <VirtualHost *:80> 
         ServerAdmin webmaster@localhost
-        Alias /static /home/debian/myapp/static
-        <Directory /home/debian/myapp static>  
-            Require all granted
-            Options FollowSymlinks
-        </Directory> 
-        ProxyPass /static !
         ProxyPass / http://localhost:8080/
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
