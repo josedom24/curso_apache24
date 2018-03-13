@@ -15,7 +15,7 @@ Lo vamos a hacer en `apache2.openwebinars.net`
             Options Indexes FollowSymLinks MultiViews
             AllowOverride None
             AuthType digest
-            AuthUserFile "/etc/apache2/digest.txt"
+            AuthUserFile "/etc/apache2/claves/digest.txt"
             AuthName "Dominio"
             Require valid-user
     	</Directory>
