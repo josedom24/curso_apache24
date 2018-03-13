@@ -10,13 +10,13 @@ Lo vamos a hacer en `apache2.openwebinars.net`
 2. Vemos el fichero de configuración
 
 		DavLockDB /tmp/DavLock
-    	<Directory /var/www/webdav>
+    	<Directory /var/www/html/apache2/webdav>
             dav on
             Options Indexes FollowSymLinks MultiViews
             AllowOverride None
             AuthType digest
             AuthUserFile "/etc/apache2/claves/digest.txt"
-            AuthName "Dominio"
+            AuthName "dominio"
             Require valid-user
     	</Directory>
 
