@@ -19,7 +19,7 @@ Creamos un fichero `.htaccess`
 
 3. Hacer que los ficheros txt no sean accesibles.
 
-		<FilesMatch "^*\.txt">
+		<FilesMatch "\.(txt)$">
 			Deny from all
 		</FilesMatch>	
 

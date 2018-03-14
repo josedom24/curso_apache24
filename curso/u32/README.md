@@ -25,7 +25,7 @@ Tenemos a nuestra disposición un servidor interno (no accesible desde el client
 ### Sirviendo una página estática
 
 En nuestro servidor interno hemos creado un virtual host para servir una página estática, `index.html`.
-Vamos a utilizar la directiva [`ProvyPass`](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypass) en el fichero de configuración del virtual host, de la siguiente forma:
+Vamos a utilizar la directiva [`ProxyPass`](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypass) en el fichero de configuración del virtual host, de la siguiente forma:
 
 	ProxyPass "/web/" "http://interno.example.org/"
 
