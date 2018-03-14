@@ -38,9 +38,9 @@ En este caso nuestra máquina debe tener configurado varias IP (lo vamos a proba
 Suponemos que nuestro servidor tiene dos interfaces de red (una interfaz interna (intranet) y otra externa (internet)), queremos que responda a las dos direcciones:
 
 	<VirtualHost 192.168.1.1 172.20.30.40>
-    	DocumentRoot "/www/server1"
-    	ServerName server.example.com
-    	ServerAlias server
+    	DocumentRoot "/www/externa"
+    	ServerName servidor.example.com
+    	ServerAlias servidor
 	</VirtualHost>
 
 ## Ejemplo: Sirviendo distintos sitios en distintos puertos
@@ -53,12 +53,12 @@ En esta ocasión hemos definido dos puertos de escucha en el fichero `/etc/apach
 Y la configuración de los virtual host podría ser la siguiente:
 
 	<VirtualHost *:80>
-    	ServerName www.example.com
-    	DocumentRoot "/www/domain-80"
+    	ServerName servidor.example.com
+    	DocumentRoot "/www/externa"
 	</VirtualHost>
 
 	<VirtualHost *:8080>
-    	ServerName www.example.com
-    	DocumentRoot "/www/domain-8080"
+    	ServerName servidor.example.com
+    	DocumentRoot "/www/interna"
 	</VirtualHost>
 
