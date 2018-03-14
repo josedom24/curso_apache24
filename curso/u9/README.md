@@ -20,15 +20,15 @@ En este caso nuestra máquina debe tener configurado varias IP (lo vamos a proba
 	<VirtualHost 192.168.56.3:80>
 	    ServerAdmin webmaster@localhost
 	    DocumentRoot /var/www/externa
-		ErrorLog ${APACHE_LOG_DIR}/error_externa.log
-		CustomLog ${APACHE_LOG_DIR}/access_externa.log combined
+	    ErrorLog ${APACHE_LOG_DIR}/error_externa.log
+	    CustomLog ${APACHE_LOG_DIR}/access_externa.log combined
 	</VirtualHost>	
 
 	<VirtualHost 172.22.0.1:80>
 	    ServerAdmin webmaster@localhost
 	    DocumentRoot /var/www/interna
 	    ErrorLog ${APACHE_LOG_DIR}/error_interna.log
-		CustomLog ${APACHE_LOG_DIR}/access_interna.log combined
+	    CustomLog ${APACHE_LOG_DIR}/access_interna.log combined
 	</VirtualHost>
 
 ## Ejemplo: Servir el mismo contenido en varias IP
