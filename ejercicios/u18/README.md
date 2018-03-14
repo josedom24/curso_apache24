@@ -8,7 +8,7 @@ debemos tener un fichero de claves: `/etc/apache2/claves/passwd.txt`.
 
 1. Se deben cumplir las dos 
 
-		<Directory /var/www/html/interna>
+		<Directory /var/www/interna>
 			AuthUserFile "/etc/apache2/claves/passwd.txt"
 			AuthName "Introduce clave:"
 			AuthType Basic

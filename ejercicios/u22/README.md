@@ -10,7 +10,7 @@ Lo vamos a hacer en `apache2.openwebinars.net`
 2. Vemos el fichero de configuración
 
 		DavLockDB /tmp/DavLock
-    	<Directory /var/www/html/apache2/webdav>
+    	<Directory /var/www/apache2/webdav>
             dav on
             Options Indexes FollowSymLinks MultiViews
             AllowOverride None

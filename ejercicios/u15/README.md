@@ -4,32 +4,32 @@ Lo vamos a hacer en nuestro servidor local.
 
 1. Permitimos acceso a `servidor.example.org\interna` desde la red interna.
 
-		<Directory /var/www/html/interna>
+		<Directory /var/www/interna>
 			Order Allow, Deny
 			Allow from 172.22.0
 		</Directory>	
 
-		<Directory /var/www/html/interna>
+		<Directory /var/www/interna>
 			Order Deny,Allow
 			Deny from 192.168.56
 		</Directory>	
 
-		<Directory /var/www/html/interna>
+		<Directory /var/www/interna>
 			Require ip 172.22.0
 		</Directory>	
 
-		<Directory /var/www/html/interna>
+		<Directory /var/www/interna>
 			Require no ip 192.168.56
 		</Directory>
 
 2. Permitimos acceso a `servidor.example.org\externa` desde la red externa.
 
-		<Directory /var/www/html/externa>
+		<Directory /var/www/externa>
 			Order Allow, Deny
 			Allow from 192.168.56
 		</Directory>	
 
-		<Directory /var/www/html/externa>
+		<Directory /var/www/externa>
 			Require ip 192.168.56
 		</Directory>
 

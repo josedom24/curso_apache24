@@ -6,7 +6,7 @@ Vamos a instalar django en el servidor
 
 		apt install python3-django
 
-		cd /var/www/html/u8/apache2/
+		cd /var/www/apache3/
 		django-admin startproject mysite
 
 
@@ -24,11 +24,11 @@ Vamos a instalar django en el servidor
 
 	    ServerName apache3.openwebinars.net
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/html/u8/apache3/mysite
-        WSGIDaemonProcess mysite user=www-data group=www-data processes=1 threads=5 python-path=/var/www/html/u8/apache3/mysite
-        WSGIScriptAlias / /var/www/html/u8/apache3/mysite/mysite/wsgi.py
+        DocumentRoot /var/www/apache3/mysite
+        WSGIDaemonProcess mysite user=www-data group=www-data processes=1 threads=5 python-path=/var/www/apache3/mysite
+        WSGIScriptAlias / /var/www/apache3/mysite/mysite/wsgi.py
 
-	    <Directory /var/www/html/u8/apache3/mysite>
+	    <Directory /var/www/apache3/mysite>
             WSGIProcessGroup mysite
             WSGIApplicationGroup %{GLOBAL}
             Require all granted
@@ -43,8 +43,8 @@ Vamos a instalar django en el servidor
 
 		[uwsgi]
 		http-socket = :8080
-		chdir = /var/www/html/u8/apache3/mysite
-		wsgi-file = /var/www/html/u8/apache3/mysite/mysite/wsgi.py
+		chdir = /var/www/apache3/mysite
+		wsgi-file = /var/www/apache3/mysite/mysite/wsgi.py
 		processes = 4
 		threads = 2
 		plugin = python3
@@ -54,7 +54,7 @@ Vamos a instalar django en el servidor
 		a2enmod proxy proxy_http
 
 
-	    DocumentRoot /var/www/html/u8/apache3/mysite
+	    DocumentRoot /var/www/apache3/mysite
         ServerAdmin webmaster@localhost
 		ProxyPass / http://localhost:8080/
 

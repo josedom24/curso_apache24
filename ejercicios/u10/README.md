@@ -27,7 +27,7 @@ Lo realizamos sobre apache1.openwebinars.net:
 
 9. Cambiamos los propietarios del enlace símbolico
 
-		/var/www/html/apache1# chown www-data:www-data *
+		/var/www/apache1# chown www-data:www-data *
 
 10. y ya no funciona
 
