@@ -5,7 +5,7 @@ Lo vamos a hacer en nuestro servidor local.
 1. Permitimos acceso a `servidor.example.org\interna` desde la red interna.
 
 		<Directory /var/www/interna>
-			Order Allow, Deny
+			Order Allow,Deny
 			Allow from 172.22.0
 		</Directory>	
 
@@ -25,7 +25,7 @@ Lo vamos a hacer en nuestro servidor local.
 2. Permitimos acceso a `servidor.example.org\externa` desde la red externa.
 
 		<Directory /var/www/externa>
-			Order Allow, Deny
+			Order Allow,Deny
 			Allow from 192.168.56
 		</Directory>	
 
