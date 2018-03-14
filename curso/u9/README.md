@@ -17,30 +17,29 @@ Por defecto los Virtual Host que hemos definido responden desde cualquier IP en 
 
 En este caso nuestra máquina debe tener configurado varias IP (lo vamos a probar en nuestro servidor local que tiene configurado dos interfaces de red), por cada IP se va servir un virtual host.
 
-	<VirtualHost 172.20.30.40:80>
-	    ServerAdmin webmaster@www1.example.com
-	    DocumentRoot "/www/vhosts/www1"
-	    ServerName www1.example.com
-	    ErrorLog "/www/logs/www1/error_log"
-	    CustomLog "/www/logs/www1/access_log" combined
+	<VirtualHost 192.168.56.3:80>
+	    ServerAdmin webmaster@localhost
+	    DocumentRoot /var/www/externa
+		ErrorLog ${APACHE_LOG_DIR}/error_externa.log
+		CustomLog ${APACHE_LOG_DIR}/access_externa.log combined
 	</VirtualHost>	
 
-	<VirtualHost 172.20.30.50:80>
-	    ServerAdmin webmaster@www2.example.org
-	    DocumentRoot "/www/vhosts/www2"
-	    ServerName www2.example.org
-	    ErrorLog "/www/logs/www2/error_log"
-	    CustomLog "/www/logs/www2/access_log" combined
+	<VirtualHost 172.22.0.1:80>
+	    ServerAdmin webmaster@localhost
+	    DocumentRoot /var/www/interna
+	    ErrorLog ${APACHE_LOG_DIR}/error_interna.log
+		CustomLog ${APACHE_LOG_DIR}/access_interna.log combined
 	</VirtualHost>
 
 ## Ejemplo: Servir el mismo contenido en varias IP
 
 Suponemos que nuestro servidor tiene dos interfaces de red (una interfaz interna (intranet) y otra externa (internet)), queremos que responda a las dos direcciones:
 
-	<VirtualHost 192.168.1.1 172.20.30.40>
-    	DocumentRoot "/www/externa"
+	<VirtualHost 192.168.56.3 172.22.0.1>
+    	DocumentRoot /var/www/externa
     	ServerName servidor.example.com
     	ServerAlias servidor
+    	...
 	</VirtualHost>
 
 ## Ejemplo: Sirviendo distintos sitios en distintos puertos
@@ -54,11 +53,11 @@ Y la configuración de los virtual host podría ser la siguiente:
 
 	<VirtualHost *:80>
     	ServerName servidor.example.com
-    	DocumentRoot "/www/externa"
+    	DocumentRoot /var/www/externa
 	</VirtualHost>
 
 	<VirtualHost *:8080>
     	ServerName servidor.example.com
-    	DocumentRoot "/www/interna"
+    	DocumentRoot /var/www/interna
 	</VirtualHost>
 
