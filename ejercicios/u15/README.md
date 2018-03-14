@@ -35,19 +35,19 @@ Lo vamos a hacer en nuestro servidor local.
 
 3. Tenemos un fichero `intranet.txt`, en `apache1.openwebinras.net`, le damos acceso sólo desde la intranet
 
-		<FilesMatch "^*\.txt">
+		<FilesMatch "\.(txt)$">
 			Order deny,allow
 			Deny from 192.168.56
 		</FilesMatch>	
 
-		<FilesMatch "^*\.txt">
+		<FilesMatch "\.(txt)$">
 			Order deny,allow
 			Deny from all
 			Allow from 172.22.0
 		</FilesMatch>
 
 
-		<FilesMatch "^*\.txt">
+		<FilesMatch "\.(txt)$">
 			Deny from ip 192.168.56
 		</FilesMatch>	
 
