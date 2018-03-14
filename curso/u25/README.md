@@ -46,6 +46,12 @@ Para instalarlo en Debian 9:
 
 	apt install php7.0-fpm php7.0
 
+Ahora podemos desactivar el módulo de php, y volver a activar el MPM event.
+
+	a2dismod php7.0
+	a2dismod mpm_prefork
+	a2enmod mpm_event
+
 ### Configuración
 
 Con esto hemos instalado php 7.0 y php-fpm. Veamos primeros algunos ficheros de configuración de php:
