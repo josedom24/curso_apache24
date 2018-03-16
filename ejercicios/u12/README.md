@@ -11,7 +11,7 @@
 
 4. A continuación vamos a probar los type-map
 
-		<Directory /var/www/apache1/intenacional>
+		<Directory /var/www/apache1/internacional>
 			DirectoryIndex index.var
     		AddHandler type-map .var
     	</Directory>
