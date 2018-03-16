@@ -4,11 +4,11 @@
 
 2. Creamos en apache1 un alias:
 
-	Alias /web /home/debian/directorio
+		Alias /web /home/debian/directorio
 
-	<Directory "/home/debian/directorio">
-		Require all granted
-	</Directory>
+		<Directory "/home/debian/directorio">
+			Require all granted
+		</Directory>
 
 3. Accedemos a `http://apache1.openwebinars.net/web/tux.png`.
 
