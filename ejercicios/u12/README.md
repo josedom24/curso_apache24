@@ -3,7 +3,7 @@
 1. Copiamos los ficheros al `documentroot`/internacional de apache1.
 2. Activamos la negociación de contenidos
 
-		<Directory /var/www/apache1/intenacional>
+		<Directory /var/www/apache1/internacional>
     		Options +Multiviews
     	</Directory>	
 
