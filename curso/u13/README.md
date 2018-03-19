@@ -4,7 +4,7 @@ La directiva [`redirect`](https://httpd.apache.org/docs/2.4/mod/mod_alias.html#r
 
 Podemos crear redirecciones de dos tipos:
 
-* **Permanentes**: se da cuando el recurso sobre el que se hace la petición ha sido ‘movido permanentemente‘ hacia una dirección distinta, es decir, hacia otra URL. Se devuelve el código de estado 301. Es la que debemos realizar cuando queremos cambiar la URL de un recurso para que los buscadores, por ejemplo cuando cambiamos de dominio y queremos que google siga guardando la posición que tenía nuestra página.
+* **Permanentes**: se da cuando el recurso sobre el que se hace la petición ha sido ‘movido permanentemente‘ hacia una dirección distinta, es decir, hacia otra URL. Se devuelve el código de estado 301. Es la que debemos realizar cuando queremos cambiar la URL de un recurso para que los buscadores, por ejemplo cuando cambiamos de dominio, sigan guardando la posición que tenía nuestra página.
 * **Temporales**: se da cuando el recurso  sobre el que se hace la petición ha sido "encontrado" pero reside temporalmente en una dirección distinta, es decir, en otra URL. Se devuelve un código de estado 302. Es la opción por defecto.
 
 ## Ejemplos de redirecciones temporales
