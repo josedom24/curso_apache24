@@ -11,7 +11,7 @@
 
 ## Un poco de historia
 
-* El proyecto surge del Centro Nacional de Actividad es de Supercomputación (*National Center for Supercomputing Activities, NCSA*) de la Universidad de Illinois.
+* El proyecto surge del Centro Nacional de Actividades de Supercomputación (*National Center for Supercomputing Activities, NCSA*) de la Universidad de Illinois.
 * Se creó un servidor llamado **HTTPd NCSA**, el más utilizado hasta 1994.
 * Su principal desarrollador, Rob McCool, abandonó el NCSA y el proyecto.
 * A partir de entonces varios programadores empiezan a desarrollar "parches" para el servidor.
