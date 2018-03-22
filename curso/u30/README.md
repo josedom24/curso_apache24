@@ -45,7 +45,7 @@ Tenemos preparado un [servidor LAMP](https://linuxconfig.org/how-to-install-a-la
     mysql> insert into users values('pepe','password');
     mysql> create user 'user'@'localhost';
 	mysql> grant all privileges on sample.* to 'user'@'localhost' identified by 'password';
-	mysql> flush priveleges;
+	mysql> flush privileges;
 
 Y una aplicación PHP (`login.php`) que realiza la operación de 'login':
 

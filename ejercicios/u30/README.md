@@ -11,7 +11,7 @@ Hay que instalar mysql
 	insert into users values('pepe','password');
 	CREATE USER 'user'@'localhost';
 	GRANT ALL PRIVILEGES ON sample.* To 'user'@'localhost' IDENTIFIED BY 'password';
-	flush priveleges;
+	flush privileges;
 
 Activamos mod_security
 
