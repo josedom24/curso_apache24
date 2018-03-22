@@ -36,7 +36,7 @@ Las reglas se encuentran en el directorio `/usr/share/modsecurity-crs/rules`.
 
 ## Demostración: evitar un ataque SQL Injection
 
-Tenemos preparado un servidor LAMP, donde hemos creado una tabla con usuarios y contraseñas:
+Tenemos preparado un [servidor LAMP](https://linuxconfig.org/how-to-install-a-lamp-server-on-debian-9-stretch-linux), donde hemos creado una tabla con usuarios y contraseñas:
 
 	# mysql -u root -p
     mysql> create database sample;
