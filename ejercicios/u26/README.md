@@ -18,7 +18,7 @@ Vamos a instalar django en el servidor
 
 1. Activamos el módulo
 
-		apt install libapache2-mod-wsgi
+		apt install libapache2-mod-wsgi-py3
 
 2. Creamos un nuevo vh con la siguiente configuración:
 
