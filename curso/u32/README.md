@@ -20,7 +20,7 @@ Por lo tanto, para empezar, vamos activar los módulos que necesitamos:
 
 ## Ejemplo de utilización de proxy inverso
 
-Tenemos a nuestra disposición un servidor interno (no accesible desde el cliente) en la dirección privada, con el nombre de `interno.example.org`. Tenemos un servidor que va a funcionar de proxy, llamado `proxy.example.org` con dos interfaces de red: una pública conectada a la red donde se encuentra el cliente, y otra interna conectada a la red donde se encuentra el servidor interno.	
+Tenemos a nuestra disposición un servidor interno (no accesible desde el cliente) en la dirección privada, con el nombre de `interno.example.org`. Tenemos un servidor que va a funcionar de proxy, llamado `proxy.exampleservidor.example.org` con dos interfaces de red: una pública conectada a la red donde se encuentra el cliente, y otra interna conectada a la red donde se encuentra el servidor interno.	
 
 ### Sirviendo una página estática
 
@@ -37,7 +37,7 @@ También lo podemos configurar de forma similar con:
 
 Evidentemente debe funcionar la resolución de nombre para que el proxy pueda acceder al servidor interno.
 
-De esta manera al acceder desde el cliente la URL `http://proxy.example.org/web/` se mostraría la página que se encuentra en el servidor interno.
+De esta manera al acceder desde el cliente la URL `http://servidor.example.org/web/` se mostraría la página que se encuentra en el servidor interno.
 
 ### El problema de las redirecciones
 
