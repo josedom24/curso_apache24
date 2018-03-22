@@ -82,7 +82,7 @@ Y realizar la siguiente configuración:
 	    ProxyHTMLURLMap / /web/
 	</Location>
 
-Como vemos hemos configurado un proxy para HTML, que será responsable de reescribir todos las rutas que contiene el HYML, utilizando la directiva [`ProxyHTMLURLMap`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_html.html#proxyhtmlurlmap):
+Como vemos hemos configurado un proxy para HTML, que será responsable de reescribir todos las rutas que contiene el HTML, utilizando la directiva [`ProxyHTMLURLMap`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_html.html#proxyhtmlurlmap):
 
 	ProxyHTMLURLMap http://interno.example.org /web
 
