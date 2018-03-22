@@ -1,6 +1,6 @@
 # Ejercicios: Python
 
-Vamos a hcerlo en el apache.openwebinars en otro vh: apache3
+Vamos a hacerlo en el apache.openwebinars en otro vh: apache3
 
 Vamos a instalar django en el servidor
 
