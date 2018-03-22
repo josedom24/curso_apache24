@@ -37,7 +37,7 @@ Vamos a instalar django en el servidor
 ## uwsgi
 
 		apt install uwsgi
-		apt install uwsgi-plugin-python
+		apt install uwsgi-plugin-python3
 
 	Creamos una configuración uwsgi (uwsgi.ini)
 
