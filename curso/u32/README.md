@@ -86,7 +86,7 @@ Como vemos hemos configurado un proxy para HTML, que será responsable de reescr
 
 	ProxyHTMLURLMap http://interno.example.org /web
 
-Es importante no poner la barra final, cuando se encuentra una ruta que coincide con el primer patrón se reescribe con el segundo, esta regla reescribe las ruta del tipo de la tercera opción que hemos visto anteriormente. Para arreglar la rutas de la segunda opción, utilizamos dentro de la sección `Location`:
+Es importante no poner la barra final, cuando se encuentra una ruta que coincide con el primer patrón se reescribe con el segundo, esta regla reescribe las ruta del tipo de la primera opción que hemos visto anteriormente. Para arreglar la rutas de la segunda opción, utilizamos dentro de la sección `Location`:
 
 	ProxyHTMLURLMap / /web/
 
