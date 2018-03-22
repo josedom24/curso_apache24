@@ -118,8 +118,3 @@ Y usamos la directiva `RequestHeader` dentro del la sección `Location`:
 	</Location>
 	
 Ahora si podemos acceder a la página completa a través del proxy.
-
-### Sirviendo contenido con HTTPS
-
-Una situación similar surge en el caso del contenido encriptado (https). En este caso, usando el módulo `ssl` y un certificado en el proxy, de modo que la sesión segura real se encuentre entre el navegador y el proxy, no al servidor interno.
-
