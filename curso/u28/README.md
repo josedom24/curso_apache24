@@ -2,7 +2,7 @@
 
 Aunque en los últimos tiempos se está poniendo de moda [Let's Encrypt](https://letsencrypt.org/), que es una autoridad de certificación que proporciona certificados X.509 gratuitos para el cifrado de Seguridad de nivel de transporte (TLS), la utilización de un cliente llamado [Certbot](https://certbot.eff.org/) que automatiza todo el ciclo de vida de la gestión de certificados: obtención, renovación, revocación, instalación en el servidor web,... nos dificulta estudiar en profundidad el proceso de gestionar nuestro propios certificados.
 
-Por lo tanto vamos a usar la CA llamada CAcert que nos permite realizar un proceso similar al que debemos hacer si gestionamos nuestros certificados con cualquier CS comercial. 
+Por lo tanto vamos a usar la CA llamada CAcert que nos permite realizar un proceso similar al que debemos hacer si gestionamos nuestros certificados con cualquier CA comercial. 
 
 El lema de [CAcert](http://www.CAcert.org/) es *Free digital certificates for everyone* y es que la utilización de certificados emitidos por CA comerciales no es posible para todos los sitios de Internet debido a su coste, lo que los limita su uso a transacciones económicas o sitios con datos relevantes. CAcert es una organización sin ánimo de lucro que mantiene una infraestructura equivalente a una CA comercial aunque con ciertas limitaciones.
 
