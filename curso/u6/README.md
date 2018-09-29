@@ -4,7 +4,7 @@ El servidor web Apache 2.4 se instala por defecto con la configuración de un se
 
     /etc/apache2/sites-available/000-default.conf
 
-Y por defecto este sitio virtual está habilitado, por lo que podemos comprobar que existe un enlace simbólico a este fichero en el directorio ``/etc/apache2/sites-enables``:
+Y por defecto este sitio virtual está habilitado, por lo que podemos comprobar que existe un enlace simbólico a este fichero en el directorio ``/etc/apache2/sites-enabled``:
 
     lrwxrwxrwx 1 root root   35 Oct  3 15:24 000-default.conf -> ../sites-available/000-default.conf
 
