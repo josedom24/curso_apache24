@@ -1,6 +1,6 @@
 # Redirecciones
 
-La directiva [`redirect`](https://httpd.apache.org/docs/2.4/mod/mod_alias.html#redirect) es usada para pedir al cliente que haga otra petición a una URL diferente. Normalmente la usamos cuando el recurso al que queremos acceder a cambiado de localización.
+La directiva [`redirect`](https://httpd.apache.org/docs/2.4/mod/mod_alias.html#redirect) es usada para pedir al cliente que haga otra petición a una URL diferente. Normalmente la usamos cuando el recurso al que queremos acceder ha cambiado de localización.
 
 Podemos crear redirecciones de dos tipos:
 
