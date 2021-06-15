@@ -32,7 +32,7 @@ Finalmente activamos el sitio:
 Podemos hacer una redirección para que cuando accedamos con HTTP se solicite el recurso utilizando HTTPS. Para ello en el fichero de configuración del virtual host `/etc/apache2/sites-available/prueba.conf` podemos incluir un `redirect`:
 
 	...
-	redirect premanent / https://prueba.josedomingo.org
+	redirect permanent / https://prueba.josedomingo.org
 	...
 
 Si tenemos activo el módulo `rewrite` también podemos hacer la redirección con la siguiente configuración:
